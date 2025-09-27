@@ -1,0 +1,143 @@
+<div *ngIf="contactDetail; else noContactSelected" class="flex flex-wrap flex-row p-6 ml-30 mt-5 gap-5">
+    <div>
+        <ng-container *ngIf="contactDetail?.imageUrl">
+            <img [src]="contactDetail.imageUrl" alt="Profile" class="w-[114px] h-[114px] rounded-[26px] object-cover">
+        </ng-container>
+    </div>
+    <div class="flex flex-col">
+        <span class="font-lato font-bold text-[20px] leading-[32px] tracking-[0px] text-[#1A1C1D]">{{contactDetail.name}}
+            </span>
+        <span class="font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-[#8083A3]">{{contactDetail.title}}</span>
+        <div class="flex flex-row gap-3 mt-3">
+            <button class="flex items-center justify-center cursor-pointer w-[122px] h-[42px] rounded-[10px] bg-[#6B59CC]">
+                <img src="./assets/icons/msg_icon.png" alt="Icon" class="w-[13px] h-[13px] mr-2">
+                <span
+                    class="font-lato font-normal text-[14px] leading-[100%] tracking-[0px] text-white">Message</span>
+            </button>
+            <div
+                class="w-[42px] h-[42px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center cursor-pointer">
+                <img src="./assets/icons/call_icon.png" alt="Icon" class="w-[10px] h-[10px]">
+            </div>
+            <div
+                class="w-[42px] h-[42px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center cursor-pointer">
+                <img src="./assets/icons/upload_icon.png" alt="Icon" class="w-[10px] h-[10px]">
+            </div>
+            <div
+                class="w-[42px] h-[42px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center cursor-pointer">
+                <img src="./assets/icons/menu_icon.png" alt="Icon">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="contactDetail" class="flex flex-col p-3 ml-3">
+    <div class="flex flex-row gap-5 items-start">
+        <span
+            class="min-w-[50px] font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-right text-[#8083A3]">
+            Bio
+        </span>
+        <span class="font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-left text-[#1A1C1D]">
+         {{contactDetail.bio}}
+        </span>
+    </div>
+
+    <div class="flex flex-row gap-5 mt-8 items-start justify-between">
+        <div class="flex flex-row gap-5">
+            <span
+                class="min-w-[50px] font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-right text-[#8083A3]">
+                Email
+            </span>
+            <div class="flex flex-col gap-2">
+                <span *ngFor="let email of contactDetail.email"
+                    class="font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-left text-[#1A1C1D]">
+                   {{email}}
+                </span>
+            </div>
+        </div>
+
+        <button
+            class="font-lato font-bold text-[12px] leading-[21px] tracking-[0px] cursor-pointer text-center bg-[#F3F4F9] text-[#8083A3] px-3 py-1 mr-5 rounded-[6px]">
+            Primary
+        </button>
+    </div>
+
+    <div class="flex flex-row gap-5 mt-8 items-start">
+        <span
+            class="min-w-[50px] font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-right text-[#8083A3]">
+            Dial
+        </span>
+        <div class="flex flex-col gap-2">
+            <span
+                class="font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-left text-[#1A1C1D]">
+                {{contactDetail.dial}} </span>
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-5 mt-8 items-start">
+        <span
+            class="min-w-[50px] font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-right text-[#8083A3]">
+            Meeting
+        </span>
+        <div class="flex flex-col gap-2">
+            <span
+                class="font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-left text-[#1A1C1D]">
+       {{contactDetail.meeting}}  </span>
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-5 mt-8 items-start justify-between">
+        <div class="flex flex-row gap-5">
+            <span
+                class="min-w-[50px] font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-right text-[#8083A3]">
+                Phone
+            </span>
+            <div class="flex flex-col gap-2">
+                <span *ngFor="let phone of contactDetail.phone" class="font-lato font-normal text-[14px] leading-[21px] tracking-[0px] text-left text-[#1A1C1D]">
+                  {{phone}}
+                </span>
+            </div>
+        </div>
+
+        <button
+            class="font-lato font-bold text-[12px] leading-[21px] tracking-[0px] cursor-pointer text-center bg-[#F3F4F9] text-[#8083A3] px-3 py-1 mr-5 rounded-[6px]">
+            Primary
+        </button>
+    </div>
+
+    <div class="flex flex-row gap-5 mt-8 items-start">
+        <span
+            class="min-w-[50px] font-lato mt-1 font-normal text-[14px] leading-[21px] tracking-[0px] text-right text-[#8083A3]">
+            Social
+        </span>
+        <div class="flex flex-row gap-2">
+            <div
+                class="w-[36px] h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white">
+                <img src="./assets/icons/fb.png" alt="Icon" class="w-[6px] h-[10px]">
+            </div>
+            <div
+                class="w-[36px] h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white">
+                <img src="./assets/icons/pin.png" alt="Icon" class="w-[9px] h-[9px]">
+            </div>
+            <div
+                class="w-[36px] h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white">
+                <img src="./assets/icons/tw.png" alt="Icon" class="w-[9px] h-[9px]">
+            </div>
+            <div
+                class="w-[36px] h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white">
+                <img src="./assets/icons/ln.png" alt="Icon" class="w-[9px] h-[9px]">
+            </div>
+            <div
+                class="w-[36px] h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white">
+                <img src="./assets/icons/g.png" alt="Icon" class="w-[9px] h-[9px]">
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noContactSelected>
+    <div class="flex items-center justify-center h-full p-6">
+        <span class="font-lato font-normal text-[16px] leading-[24px] text-[#8083A3]">
+            No contact is selected
+        </span>
+    </div>
+</ng-template>

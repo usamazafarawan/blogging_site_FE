@@ -1,0 +1,2166 @@
+{
+    "header": {
+        "title": "Solutions Overview",
+        "createdDate": "April 3, 2025",
+        "version": "1.3",
+        "owner": "Max Roberts",
+        "company": "Virgin Cola"
+    },
+    "home": {
+        "search": "Search prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation"
+        ]
+    },
+    "discover": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation",
+            "Discover",
+            "Goal"
+        ],
+        "SelectconceptTypes": [
+          {
+            "type": "Goal",
+            "description": "A board, strategic aim or desired outcome"
+          },
+          {
+            "type": "Objective",
+            "description": "Specific, Measurable target supporting a goal"
+          },
+          {
+            "type": "Initiative",
+            "description": "Coordinated effort to achieve objectives"
+          },
+          {
+            "type": "Driver",
+            "description": "Force to trend influencing strategy"
+          },
+          {
+            "type": "Process",
+            "description": "Series of actions to achieve a result"
+          },
+          {
+            "type": "Team",
+            "description": "Group working together on common goals"
+          },
+          {
+            "type": "Access",
+            "description": "Permission to use or view something"
+          },
+          {
+            "type": "Progress",
+            "description": "Movement toward a goal"
+          },
+          {
+            "type": "Tasks",
+            "description": "Individual pieces of work to be completed"
+          },
+          {
+            "type": "People",
+            "description": "Individuals involved in the process"
+          }
+        ],
+        "FindconceptTypes":[
+          { "type": "Goal-1", "description": "Increase market share by 15%" },
+          { "type": "Goal-2", "description": "Improve customer satisfaction scores" },
+          { "type": "Goal-3", "description": "Expand to 3 new markets" },
+          { "type": "Goal-4", "description": "Reduce operational costs by 10%" },
+          { "type": "Goal-5", "description": "Launch 2 new products this year" },
+          { "type": "Goal-6", "description": "Achieve 95% employee retention" },
+          { "type": "Goal-7", "description": "Implement new CRM system" },
+          { "type": "Goal-8", "description": "Improve website conversion rate" },
+          { "type": "Goal-9", "description": "Establish strategic partnerships" },
+          { "type": "Goal-10", "description": "Enhance data security measures" },
+          { "type": "Goal-11", "description": "Reduce carbon footprint by 20%" },
+          { "type": "Goal-12", "description": "Increase social media engagement" },
+          { "type": "Goal-13", "description": "Improve product quality metrics" },
+          { "type": "Goal-14", "description": "Streamline supply chain processes" },
+          { "type": "Goal-15", "description": "Develop leadership pipeline" },
+          { "type": "Goal-16", "description": "Enhance customer support services" }
+        ],
+        "tableTabs":[
+        {
+            "type": "Goals",
+            "description": "A board, strategic aim or desired outcome"
+          },
+             {
+            "type": "Objectives",
+            "description": "Specific, Measurable target supporting a goal"
+          },
+             {
+            "type": "Drivers",
+            "description": "Force to trend influencing strategy"
+          },
+              {
+            "type": "Tasks",
+            "description": "Individual pieces of work to be completed"
+          },
+          {
+            "type": "People",
+            "description": "Individuals involved in the process"
+          }
+        ]
+    },
+    "action": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation",
+            "Action",
+            "Goal"
+        ]
+    },
+    "reflect": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation",
+            "Reflect",
+            "Goal"
+        ]
+    },
+    "analyze": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation",
+            "Analyze",
+            "Goal"
+        ]
+    },
+    "sol": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Dashboard",
+            "Grid List"
+        ]
+    },
+    "dashboard": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation",
+            "sol",
+            "dashboard"
+        ]
+    },
+    "detail": {
+        "search": "Search Discover prompt for Digital Transformation",
+        "breadCrumb": [
+            "Solutions",
+            "Digital Transformation",
+            "sol",
+            "detail"
+        ]
+    },
+    "entities": {
+        "goal": {
+            "displayName": "Goal",
+            "icon": "IconName",
+            "properties": { 
+                "name": {
+                    "type": "string",
+                    "displayName": "Name",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 100,
+                    "regex": ""
+                },
+                "description": {
+                    "type": "string",
+                    "displayName": "Name",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 100,
+                    "regex": ""
+                },
+                "percentComplete": {
+                    "type": "number",
+                    "displayName": "Complete %",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 3,
+                    "regex": "^(100(\\.0{1,2})?|[1-9]?\\d(\\.\\d{1,2})?)$"
+                },
+                "owner": {
+                    "type": "string",
+                    "displayName": "Owner",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 100,
+                    "regex": ""
+                },
+                "startDate": {
+                    "type": "date",
+                    "displayName": "Start Date",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 100,
+                    "regex": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "endDate": {
+                    "type": "date",
+                    "displayName": "End Date",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 100,
+                    "regex": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "status": {
+                    "type": "string",
+                    "displayName": "Status",
+                    "searchable": true,
+                    "sortable": true,
+                    "required": true,
+                    "maxLength": 100,
+                    "regex": ""
+                }
+            },
+            "views": {
+                "card": {
+                    "name": "Card",
+                    "icon": "./assets/icons/sprite.svg#card",
+                    "style": {
+                        "width": "14px",
+                        "height": "13px"
+                    },
+                    "Goalcards": [
+                        {
+                            "title": "Identify Drivers",
+                            "description": "Define what's driving this goal and why it's important",
+                            "icon": "../../../../assets/icons/doubleRight.svg",
+                            "buttonText": "Explore",
+                            "visible": true
+                        },
+                        {
+                            "title": "Identify Constraints",
+                            "description": "Document limitations or boundaries for this goal",
+                            "icon": "../../../../assets/icons/doubleRight.svg",
+                            "buttonText": "Explore",
+                            "visible": true
+                        },
+                        {
+                            "title": "Align Measures",
+                            "description": "Connect KPIs and metrics to track progress",
+                            "icon": "../../../../assets/icons/doubleRight.svg",
+                            "buttonText": "Explore",
+                            "visible": true
+                        },
+                        {
+                            "title": "Establish Action Plan",
+                            "description": "Connect KPIs and metrics to track progress",
+                            "icon": "../../../../assets/icons/doubleRight.svg",
+                            "buttonText": "Explore",
+                            "visible": true
+                        },
+                        {
+                            "title": "Create Milestones",
+                            "description": "Connect KPIs and metrics to track progress",
+                            "icon": "../../../../assets/icons/doubleRight.svg",
+                            "buttonText": "Explore",
+                            "visible": true
+                        }
+                    ],
+                    "GoalcardsData": [
+                        {
+                            "id": "1",
+                            "title": "Goal 1",
+                            "name": "Optimize IT Cost & Efficiency",
+                            "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "2",
+                            "title": "Goal 2",
+                            "name": "Enhance Digital Customer Experience",
+                            "description": "Us cta problem a solutions goto can't latest book rundown. Anomalies strategy q1 slipstream expectations after. Done canatics streamline hanging.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "3",
+                            "title": "Goal 3",
+                            "name": "Improve Operational Resilience",
+                            "description": "Closest latest underlying we pivot go competitors rehydrate feed power. Activities prioritize downloaded do best high 30,000ft. Harvest marketing pants.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "4",
+                            "title": "Goal 4",
+                            "name": "Optimize IT Cost & Efficiency",
+                            "description": "Barn is here charts nor productize an. Build one can't sorry right know domains break. Businesses cadence boil hear underlying fruit seat pin. Moving replied net.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "5",
+                            "title": "Goal 5",
+                            "name": "Enhance Digital Customer Experience",
+                            "description": "Club minimize bandwagon sexy flesh adoption open principles. Keywords squad closing let meat skulls see group message. Q1 busy teams us clean every.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "6",
+                            "title": "Goal 6",
+                            "name": "Align IT Strategy with Business Goals",
+                            "description": "Anomalies synergize individual reach put protocol follow. Hop functional post cta sandwich digital. Brainstorming panel pups meeting best teeth lunch.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "7",
+                            "title": "Goal 7",
+                            "name": "Security Planning",
+                            "description": "Barn is here charts nor productize an. Build one can't sorry right know domains break. Businesses cadence boil hear underlying fruit seat pin. Moving replied net.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "8",
+                            "title": "Goal 8",
+                            "name": "Enhance Digital Customer Experience",
+                            "description": "Club minimize bandwagon sexy flesh adoption open principles. Keywords squad closing let meat skulls see group message. Q1 busy teams us clean every.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        },
+                        {
+                            "id": "9",
+                            "title": "Goal 9",
+                            "name": "Security Planning",
+                            "description": "Anomalies synergize individual reach put protocol follow. Hop functional post cta sandwich digital. Brainstorming panel pups meeting best teeth lunch.",
+                            "icon": "./assets/icons/sprite.svg#goal"
+                        }
+                    ],
+                    "RelationButtons": [
+                        {
+                            "name": "Drivers"
+                        },
+                        {
+                            "name": "Organizations"
+                        },
+                        {
+                            "name": "Objectives"
+                        },
+                        {
+                            "name": "Initiatives"
+                        },
+                        {
+                            "name": "Action"
+                        },
+                        {
+                            "name": "Projects"
+                        },
+                        {
+                            "name": "Products"
+                        },
+                        {
+                            "name": "KPIs"
+                        },
+                        {
+                            "name": "Employees"
+                        },
+                        {
+                            "name": "Key Results"
+                        },
+                        {
+                            "name": "Resources"
+                        },
+                        {
+                            "name": "Stakeholders"
+                        },
+                        {
+                            "name": "Services"
+                        }
+                    ],
+                    "owners": [
+                        {
+                            "name": "Alex Murphy",
+                            "icon": "../../../../assets/avatar/profileImg.png"
+                        },
+                        {
+                            "name": "Harry",
+                            "icon": "../../../../assets/avatar/profileImg.png"
+                        },
+                        {
+                            "name": "Dosson",
+                            "icon": "../../../../assets/avatar/profileImg.png"
+                        },
+                        {
+                            "name": "German",
+                            "icon": "../../../../assets/avatar/profileImg.png"
+                        },
+                        {
+                            "name": "Alex",
+                            "icon": "../../../../assets/avatar/profileImg.png"
+                        }
+                    ],
+                    "priorities": [
+                        {
+                            "name": "High",
+                            "code": "1",
+                            "icon": "../../../../assets/icons/HighPreority.svg"
+                        },
+                        {
+                            "name": "Medium",
+                            "code": "2",
+                            "icon": "../../../../assets/icons/medflag.svg"
+                        },
+                        {
+                            "name": "Low",
+                            "code": "3",
+                            "icon": "../../../../assets/icons/low.svg"
+                        }
+                    ],
+                    "statuses": [
+                        {
+                            "name": "Draft",
+                            "code": "1",
+                            "color": "#FDECF6"
+                        },
+                        {
+                            "name": "Done",
+                            "code": "2",
+                            "color": "#5dc55d"
+                        },
+                        {
+                            "name": "Pending",
+                            "code": "3",
+                            "color": "#f1dd5d"
+                        }
+                    ],
+                    "infraInsights" : [
+                        {
+                          "icon": "assets/icons/greenCheck.svg",
+                          "text": "Current on premise infrastructure costs $1.2M annually"
+                        },
+                        {
+                          "icon": "assets/icons/greenCheck.svg",
+                          "text": "Hardware refresh required in next 18 months"
+                        },
+                        {
+                          "icon": "assets/icons/greenCheck.svg",
+                          "text": "Average server utilization is 42% during business hours"
+                        },
+                        {
+                          "icon": "assets/icons/Qmarkround.svg",
+                          "text": "Cloud migration will save ~20% in total infrastructure costs"
+                        },
+                        {
+                          "icon": "assets/icons/i.svg",
+                          "text": "We require multi-region redundancy for critical services"
+                        }
+                    ],
+                    "scoreData": [
+                        {
+                          "label": "Cost Effectiveness",
+                          "value": 30
+                        },
+                        {
+                          "label": "Performance",
+                          "value": 25
+                        },
+                        {
+                          "label": "Security & Compliance",
+                          "value": 20
+                        },
+                        {
+                          "label": "Service Availability",
+                          "value": 15
+                        },
+                        {
+                          "label": "Ease of Integration",
+                          "value": 10
+                        }
+                    ],
+                    "platforms": [
+                        {
+                          "name": "AWS",
+                          "status": "Leading",
+                          "score": 8.2,
+                          "ratingData": [
+                            { "label": "Cost", "score": 7.5 },
+                            { "label": "Performance", "score": 8.5 },
+                            { "label": "Security", "score": 9.0 },
+                            { "label": "Availability", "score": 8.5 },
+                            { "label": "Integration", "score": 7.0 }
+                          ],
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "icon": "../../../../assets/icons/trendingUp.svg",
+                          "iconColor": "#0E9F6E"
+                        },
+                        {
+                          "name": "Azure",
+                          "status": "Alternative",
+                          "score": 8.0,
+                          "ratingData": [
+                            { "label": "Cost", "score": 7.0 },
+                            { "label": "Performance", "score": 8.2 },
+                            { "label": "Security", "score": 8.0 },
+                            { "label": "Availability", "score": 9.0 },
+                            { "label": "Integration", "score": 6.0 }
+                          ],
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "icon": "../../../../assets/icons/minusBlack.svg",
+                          "iconColor": "#4B5563"
+                        },
+                        {
+                          "name": "Google Cloud",
+                          "status": "Alternative",
+                          "score": 7.5,
+                          "ratingData": [
+                            { "label": "Cost", "score": 8.0 },
+                            { "label": "Performance", "score": 7.5 },
+                            { "label": "Security", "score": 7.5 },
+                            { "label": "Availability", "score": 7.0 },
+                            { "label": "Integration", "score": 7.5 }
+                          ],
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "icon": "../../../../assets/icons/minusBlack.svg",
+                          "iconColor": "#4B5563"
+                        }
+                    ],
+                    "reflectCards": [
+                        {
+                            "id": "1",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Concept: Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "repliesList": [
+                            "This needs further analysis.",
+                            "Good point on resource tagging."
+                          ],
+                          "author": {
+                            "name": "Wade Warren",
+                            "date": "March 25, 2025",
+                            "avatar": "assets/avatar/avatar1.png"
+                          },
+                          "replies": 2,
+                          "links": 0
+                        },
+                        {
+                            "id": "2",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Courtney Henry",
+                            "date": "March 26, 2025",
+                            "avatar": "assets/avatar/avatar2.png"
+                          },
+                          "replies": 4,
+                          "links": 3
+                        },
+                        {
+                            "id": "3",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Wade Warren",
+                            "date": "March 27, 2025",
+                            "avatar": "assets/avatar/avatar3.png"
+                          },
+                          "replies": 1,
+                          "links": 2
+                        },
+                        {
+                            "id": "4",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Courtney Henry",
+                            "date": "March 28, 2025",
+                            "avatar": "assets/avatar/avatar4.png"
+                          },
+                          "replies": 3,
+                          "links": 0
+                        },
+                        {
+                            "id": "5",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Albert Flores",
+                            "date": "March 29, 2025",
+                            "avatar": "assets/avatar/avatar5.png"
+                          },
+                          "replies": 0,
+                          "links": 1
+                        },
+                        {
+                            "id": "6",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Esther Howard",
+                            "date": "March 30, 2025",
+                            "avatar": "assets/avatar/avatar6.png"
+                          },
+                          "replies": 2,
+                          "links": 2
+                        },
+                        {
+                            "id": "7",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Albert Flores",
+                            "date": "April 1, 2025",
+                            "avatar": "assets/avatar/avatar7.png"
+                          },
+                          "replies": 1,
+                          "links": 3
+                        },
+                        {
+                            "id": "8",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Courtney Henry",
+                            "date": "April 2, 2025",
+                            "avatar": "assets/avatar/avatar8.png"
+                          },
+                          "replies": 3,
+                          "links": 1
+                        },
+                        {
+                            "id": "9",
+                          "title": "Optimize IT Cost & Efficiency",
+                          "description": "Short description Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                          "associatedConcepts": ["Cloud Cost Analysis", "Implement Resource Tagging", "Business Impact Analysis"],
+                          "author": {
+                            "name": "Albert Flores",
+                            "date": "April 3, 2025",
+                            "avatar": "assets/avatar/avatar9.png"
+                          },
+                          "replies": 5,
+                          "links": 2
+                        }
+                    ],
+                    "reflectExpandCards":[
+                        {
+                            "id": "1",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["John Thomas", "Social Media Marketing"],
+                            "links": 4,
+                            "replies": 1,
+                            "iconBackgrounds": ["#E5E7EB", "#E5E7EB", "#EF518C", "#E5E7EB"]
+                          },
+                          {
+                            "id": "2",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 5,
+                            "replies": 1,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#E5E7EB"]
+                          },
+                          {
+                            "id": "3",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 3,
+                            "replies": 2,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#7A499D"]
+                          },
+                          {
+                            "id": "4",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 5,
+                            "replies": 3,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#3F83F8"]
+                          },
+                          {
+                            "id": "5",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 2,
+                            "replies": 5,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#E5E7EB"]
+                          },
+                          {
+                            "id": "6",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 3,
+                            "replies": 1,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#E5E7EB"]
+                          },
+                          {
+                            "id": "7",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 5,
+                            "replies": 1,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#E5E7EB"]
+                          },
+                          {
+                            "id": "8",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 5,
+                            "replies": 1,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#E5E7EB"]
+                          },
+                          {
+                            "id": "9",
+                            "title": "Insights",
+                            "comment": "comment Lorem ipsum dolor sit amet, ne elit convenire consequat eos, ei eam postea verterem, mel at reque mediocrem.",
+                            "tags": ["Devid Max", "Senior Developer"],
+                            "links": 5,
+                            "replies": 1,
+                            "iconBackgrounds": ["#E5E7EB", "#0694A2", "#E5E7EB", "#E5E7EB"]
+                          }
+                    ],
+                    "relativeSolutionCard": [
+                        {
+                            "bgColor": "#FF8A4C",
+                            "icon": "../../../assets/icons/cloud-arrow-up.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        },
+                        {
+                            "bgColor": "#31C48D",
+                            "icon": "../../../assets/icons/computer-desktop.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        },
+                        {
+                            "bgColor": "#3F83F8",
+                            "icon": "../../../assets/icons/docker.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        },
+                        {
+                            "bgColor": "#9061F9",
+                            "icon": "../../../assets/icons/organization-chart.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        },
+                        {
+                            "bgColor": "#111928",
+                            "icon": "../../../assets/icons/document.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        },
+                        {
+                            "bgColor": "#FF8A4C",
+                            "icon": "../../../assets/icons/cloud-arrow-up.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        },
+                        {
+                            "bgColor": "#31C48D",
+                            "icon": "../../../assets/icons/computer-desktop.svg",
+                            "label": "Adopt",
+                            "title": "Cloud Cost Optimization Platform"
+                        }
+                    ],
+                    "strength": [
+                        {
+                            "name": "Positive",
+                            "code": "1"
+                        },
+                        {
+                            "name": "Negative",
+                            "code": "2"
+                        }
+                    ],
+                    "Relationshiptabs": [
+                        { "key": "select", "label": "Select Drivers" },
+                        { "key": "create", "label": "Create New Drivers" },
+                        { "key": "visualize", "label": "Visualize Drivers" }
+                    ],
+                    "accordionData": [
+                        {
+                            "title": "Competitive Pressure",
+                            "isOpen": false,
+                            "btn": [
+                                {
+                                    "label": "Link to goal",
+                                    "bg": "#FCE8F3",
+                                    "color": "#EF518C"
+                                },
+                                {
+                                    "label": "High",
+                                    "bg": "#FEECDC",
+                                    "color": "#8A2C0D"
+                                },
+                                {
+                                    "label": "External",
+                                    "bg": "#DEF7EC",
+                                    "color": "#057A55"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Revenue Growth Targets",
+                            "isOpen": false,
+                            "btn": [
+                                {
+                                    "label": "Link to goal",
+                                    "bg": "#FCE8F3",
+                                    "color": "#EF518C"
+                                },
+                                {
+                                    "label": "Medium",
+                                    "bg": "#E1EFFE",
+                                    "color": "#3F83F8"
+                                },
+                                {
+                                    "label": "External",
+                                    "bg": "#DEF7EC",
+                                    "color": "#057A55"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Product Market Fit",
+                            "isOpen": false,
+                            "btn": [
+                                {
+                                    "label": "Medium",
+                                    "bg": "#E1EFFE",
+                                    "color": "#3F83F8"
+                                }
+                            ]
+                        }
+                    ],
+                    "taskCards": [
+                        {
+                          "title": "Unassigned",
+                          "value": 1,
+                          "description": "Unassigned Tasks",
+                          "icon": "<circle cx=\"2\" cy=\"8\" r=\"1.5\" /><circle cx=\"8\" cy=\"8\" r=\"1.5\" /><circle cx=\"14\" cy=\"8\" r=\"1.5\" />"
+                        },
+                        {
+                          "title": "In Progress",
+                          "value": 0,
+                          "description": "Task in progress",
+                          "icon": "<circle cx=\"2\" cy=\"8\" r=\"1.5\" /><circle cx=\"8\" cy=\"8\" r=\"1.5\" /><circle cx=\"14\" cy=\"8\" r=\"1.5\" />"
+                        },
+                        {
+                          "title": "Completed",
+                          "value": 0,
+                          "description": "Task completed",
+                          "icon": "<circle cx=\"2\" cy=\"8\" r=\"1.5\" /><circle cx=\"8\" cy=\"8\" r=\"1.5\" /><circle cx=\"14\" cy=\"8\" r=\"1.5\" />"
+                        }
+                    ],
+                    "dashboardButoons": [
+                        {
+                          "value": "$3.2M",
+                          "description": "Total Infrastructure Cost"
+                        },
+                        {
+                          "value": "42%",
+                          "description": "Cloud Services"
+                        },
+                        {
+                          "value": "27%",
+                          "description": "On-Premise Hardware"
+                        },
+                        {
+                          "value": "18%",
+                          "description": "Software Licenses"
+                        },
+                        {
+                          "value": "13%",
+                          "description": "Personnel & Support"
+                        }
+                    ],
+                    "dashboardCharts": [
+                        {
+                          "code": "Line",
+                          "name": "Line chart"
+                        },
+                        {
+                          "code": "Bar",
+                          "name": "Bar Chart"
+                        }
+                    ]
+                      
+                },
+                "table": {
+                    "name": "Table",
+                    "icon": "./assets/icons/sprite.svg#table",
+                    "style": {
+                        "width": "16px",
+                        "height": "13px"
+                    },
+                    "tableData": [
+                        {
+                            "id": "1",
+                            "taskName": "Basic CRUD Operations",
+                            "status": "Active",
+                            "priority": "Low",
+                            "dueDate": "October 30, 2024",
+                            "owner": "David Oshodi",
+                            "avatar": "./assets/avatar/10.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "2",
+                            "taskName": "Simple Calculator",
+                            "status": "Hold",
+                            "priority": "High",
+                            "dueDate": "May 20, 2024",
+                            "owner": "Esther Howard",
+                            "avatar": "./assets/avatar/15.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "3",
+                            "taskName": "To-Do List Application",
+                            "status": "Active",
+                            "priority": "Very Urgent",
+                            "dueDate": "May 29, 2024",
+                            "owner": "Edwin Adenike",
+                            "avatar": "./assets/avatar/12.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "4",
+                            "taskName": "Application Design",
+                            "status": "Active",
+                            "priority": "Normal",
+                            "dueDate": "October 25, 2024",
+                            "owner": "Edwin Martins",
+                            "avatar": "./assets/avatar/13.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "5",
+                            "taskName": "Prime Number Checker",
+                            "status": "Active",
+                            "priority": "High",
+                            "dueDate": "September 24, 2024",
+                            "owner": "David Oshodi",
+                            "avatar": "./assets/avatar/10.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "6",
+                            "taskName": "Website Design",
+                            "status": "Active",
+                            "priority": "Urgent",
+                            "dueDate": "September 9, 2024",
+                            "owner": "Adeleke Peter",
+                            "avatar": "./assets/avatar/15.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "7",
+                            "taskName": "Security Check",
+                            "status": "Active",
+                            "priority": "Low",
+                            "dueDate": "November 7, 2024",
+                            "owner": "Esther Howard",
+                            "avatar": "./assets/avatar/15.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "8",
+                            "taskName": "Palindrome Checker",
+                            "status": "Active",
+                            "priority": "High",
+                            "dueDate": "April 28, 2024",
+                            "owner": "David Oshodi",
+                            "avatar": "./assets/avatar/10.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "9",
+                            "taskName": "Temperature Converter Application Making",
+                            "status": "Hold",
+                            "priority": "Normal",
+                            "dueDate": "December 2, 2024",
+                            "owner": "Mbah Jacob",
+                            "avatar": "./assets/avatar/18.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "10",
+                            "taskName": "Fibonacci Sequence Generator",
+                            "status": "Active",
+                            "priority": "Urgent",
+                            "dueDate": "March 13, 2025",
+                            "owner": "Afolabi David",
+                            "avatar": "./assets/avatar/19.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "11",
+                            "taskName": "Sorting Algorithms Implementation",
+                            "status": "Active",
+                            "priority": "High",
+                            "dueDate": "February 28, 2025",
+                            "owner": "Rebeka Ayomide",
+                            "avatar": "./assets/avatar/20.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "12",
+                            "taskName": "Logo Design for my company",
+                            "status": "Active",
+                            "priority": "Normal",
+                            "dueDate": "February 9, 2025",
+                            "owner": "Hellena John",
+                            "avatar": "./assets/avatar/21.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "13",
+                            "taskName": "Binary Search Algorithm",
+                            "status": "Hold",
+                            "priority": "Low",
+                            "dueDate": "December 19, 2025",
+                            "owner": "David Oshodi",
+                            "avatar": "./assets/avatar/10.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "14",
+                            "taskName": "User Authentication System",
+                            "status": "Hold",
+                            "priority": "Very Urgent",
+                            "dueDate": "October 31, 2025",
+                            "owner": "Savana Friday",
+                            "avatar": "./assets/avatar/10.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "15",
+                            "taskName": "Chat Application",
+                            "status": "Active",
+                            "priority": "Normal",
+                            "dueDate": "August 24, 2025",
+                            "owner": "Samuel Olukoju",
+                            "avatar": "./assets/avatar/11.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "16",
+                            "taskName": "RESTful API Development",
+                            "status": "Hold",
+                            "priority": "Low",
+                            "dueDate": "May 31, 2025",
+                            "owner": "Annette Black",
+                            "avatar": "./assets/avatar/12.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "17",
+                            "taskName": "E-commerce Website",
+                            "status": "Active",
+                            "priority": "High",
+                            "dueDate": "February 11, 2025",
+                            "owner": "Theresa Webb",
+                            "avatar": "./assets/avatar/13.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "18",
+                            "taskName": "Game Development",
+                            "status": "Active",
+                            "priority": "Normal",
+                            "dueDate": "November 28, 2025",
+                            "owner": "Robert Fox",
+                            "avatar": "./assets/avatar/14.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "19",
+                            "taskName": "Machine Learning Model",
+                            "status": "Active",
+                            "priority": "Very Urgent",
+                            "dueDate": "December 29, 2025",
+                            "owner": "Esther Howard",
+                            "avatar": "./assets/avatar/15.png",
+                            "addMore": ""
+                        },
+                        {
+                            "id": "20",
+                            "taskName": "Weather Forecast Application",
+                            "status": "Hold",
+                            "priority": "Normal",
+                            "dueDate": "February 29, 2025",
+                            "owner": "Leslie Alexander",
+                            "avatar": "./assets/avatar/20.png",
+                            "addMore": ""
+                        }
+                    ],
+                    "tableDetails": [
+                        {
+                            "name": "Supporting Objectives",
+                            "data": [
+                                {
+                                    "id": "1",
+                                    "type": "Objective",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Medium",
+                                    "impact": "50",
+                                    "createdAt": "12/30/2025",
+                                    "createdBy": "Max Robart",
+                                    "updatedAt": "12/30/2025",
+                                    "updatedBy": "Alex Thomas"
+                                },
+                                {
+                                    "id": "2",
+                                    "type": "Objective",
+                                    "title": "Eliminate Redundant IT Assets",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Medium",
+                                    "impact": "50",
+                                    "createdAt": "04/15/2025",
+                                    "createdBy": "Samuel Knight",
+                                    "updatedAt": "04/20/2025",
+                                    "updatedBy": "Mitchell Starc"
+                                },
+                                {
+                                    "id": "3",
+                                    "type": "Objective",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Medium",
+                                    "impact": "50",
+                                    "createdAt": "06/08/2025",
+                                    "createdBy": "Ozil Jack",
+                                    "updatedAt": "06/09/2025",
+                                    "updatedBy": "Glenn Phillips"
+                                },
+                                {
+                                    "id": "4",
+                                    "type": "Objective",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Low",
+                                    "impact": "50",
+                                    "createdAt": "07/31/2025",
+                                    "createdBy": "Michael Gray",
+                                    "updatedAt": "08/05/2025",
+                                    "updatedBy": "Alyssa Dahl"
+                                },
+                                {
+                                    "id": "5",
+                                    "type": "Objective",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Medium",
+                                    "impact": "50",
+                                    "createdAt": "02/13/2025",
+                                    "createdBy": "Araceli John",
+                                    "updatedAt": "02/18/2025",
+                                    "updatedBy": "Linda Martin"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Influencing Drivers",
+                            "data": [
+                                {
+                                    "id": "6",
+                                    "type": "Drivers",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Medium",
+                                    "impact": "50",
+                                    "createdAt": "05/01/2025",
+                                    "createdBy": "Chloe Decker",
+                                    "updatedAt": "06/05/2025",
+                                    "updatedBy": "Polly Gray"
+                                },
+                                {
+                                    "id": "7",
+                                    "type": "Drivers",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Low",
+                                    "impact": "50",
+                                    "createdAt": "03/14/2025",
+                                    "createdBy": "Arthur Shelby",
+                                    "updatedAt": "04/28/2025",
+                                    "updatedBy": "Bjorn Lothbrok"
+                                },
+                                {
+                                    "id": "8",
+                                    "type": "Drivers",
+                                    "title": "Reduce On-Premises Infrastructure Costs",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "priority": "High",
+                                    "risk": "Medium",
+                                    "impact": "50",
+                                    "createdAt": "09/15/2025",
+                                    "createdBy": "Arturo Campbell",
+                                    "updatedAt": "11/14/2025",
+                                    "updatedBy": "Isaiah Mary"
+                                }
+                            ]
+                        }
+                    ],
+                    "tableTabs": [
+                        {
+                            "id": "1",
+                            "name": "Concept Type 1"
+                        },
+                        {
+                            "id": "2",
+                            "name": "Concept Type 2"
+                        },
+                        {
+                            "id": "3",
+                            "name": "Concept Type 3"
+                        },
+                        {
+                            "id": "4",
+                            "name": "Concept Type 4"
+                        },
+                        {
+                            "id": "5",
+                            "name": "Concept Type 5"
+                        }
+                    ]
+                },
+                "graph": {
+                    "name": "Graph",
+                    "icon": "./assets/icons/sprite.svg#graph",
+                    "style": {
+                        "width": "16px",
+                        "height": "17px"
+                    },
+                    "graphElements": [
+                        { "data": { "id": "node1", "label": "Node 1" } },
+                        { "data": { "id": "node2", "label": "Node 2" } },
+                        { "data": { "source": "node1", "target": "node2", "label": "Goal" } }
+                      ]
+                },
+                "board": {
+                    "name": "Board",
+                    "icon": "./assets/icons/sprite.svg#board",
+                    "style": {
+                        "width": "14px",
+                        "height": "11px"
+                    },
+                    "columns": [
+                        {
+                          "title": "Backlog",
+                          "color": "border-pink-500",
+                          "taskType": "Goal",
+                          "taskTypeColor": "bg-purple-100 text-purple-500",
+                          "tasks": [
+                            {
+                              "id": "1",
+                              "goal": "Goal -01",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "High",
+                              "category": "Security",
+                              "market": "",
+                              "priorityColor": "bg-green-100 text-green-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png"],
+                              "comments": 1
+                            },
+                            {
+                              "id": "2",
+                              "goal": "Goal -02",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "Medium",
+                              "category": "Security",
+                              "market": "",
+                              "priorityColor": "bg-orange-100 text-orange-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png", "avater3.png"],
+                              "comments": 3
+                            },
+                            {
+                              "id": "3",
+                              "goal": "Goal -03",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "Medium",
+                              "category": "Security",
+                              "market": "",
+                              "priorityColor": "bg-orange-100 text-orange-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png", "avater3.png"],
+                              "comments": 3
+                            }
+                          ]
+                        },
+                        {
+                          "title": "To Do",
+                          "color": "border-purple-500",
+                          "taskType": "Goal",
+                          "taskTypeColor": "bg-purple-100 text-purple-500",
+                          "tasks": [
+                            {
+                              "id": "4",
+                              "goal": "Goal -01",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "High",
+                              "category": "Security",
+                              "market": "",
+                              "priorityColor": "bg-green-100 text-green-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png"],
+                              "comments": 1
+                            }
+                          ]
+                        },
+                        {
+                          "title": "Work in Progress",
+                          "color": "border-blue-500",
+                          "taskType": "Goal",
+                          "taskTypeColor": "bg-purple-100 text-purple-500",
+                          "tasks": [
+                            {
+                              "id": "5",
+                              "goal": "Goal -01",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "Urgent",
+                              "category": "Design",
+                              "market": "",
+                              "priorityColor": "bg-red-100 text-red-500",
+                              "categoryColor": "bg-blue-100 text-blue-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png"],
+                              "comments": 1
+                            },
+                            {
+                              "id": "6",
+                              "goal": "Goal -02",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "High",
+                              "category": "Development",
+                              "market": "",
+                              "priorityColor": "bg-yellow-100 text-yellow-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png"],
+                              "comments": 2
+                            },
+                            {
+                              "id": "7",
+                              "goal": "Goal -03",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "Medium",
+                              "category": "Security",
+                              "market": "Marketing",
+                              "priorityColor": "bg-orange-100 text-orange-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "bg-blue-100 text-blue-500",
+                              "avatars": ["avater.png", "avater2.png"],
+                              "comments": 1
+                            }
+                          ]
+                        },
+                        {
+                          "title": "Completed",
+                          "color": "border-green-500",
+                          "taskType": "Goal",
+                          "taskTypeColor": "bg-purple-100 text-purple-500",
+                          "tasks": [
+                            {
+                              "id": "8",
+                              "goal": "Goal -01",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "High",
+                              "category": "Security",
+                              "market": "",
+                              "priorityColor": "bg-green-100 text-green-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png", "avater3.png"],
+                              "comments": 1
+                            },
+                            {
+                              "id": "9",
+                              "goal": "Goal -02",
+                              "description": "Most teams have a difficult time integrating security into development",
+                              "priority": "Medium",
+                              "category": "Security",
+                              "market": "",
+                              "priorityColor": "bg-orange-100 text-orange-500",
+                              "categoryColor": "bg-purple-100 text-purple-500",
+                              "marketColor": "",
+                              "avatars": ["avater.png", "avater2.png"],
+                              "comments": 3
+                            }
+                          ]
+                        },
+
+
+                        {
+                            "title": "Backlog",
+                            "color": "border-pink-500",
+                            "taskType": "Person",
+                            "taskTypeColor": "bg-green-100 text-green-500",
+                            "tasks": [
+                              {
+                                "id": "11",
+                                "goal": "Goal -01",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "High",
+                                "category": "Security",
+                                "market": "",
+                                "priorityColor": "bg-green-100 text-green-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png"],
+                                "comments": 1
+                              },
+                              {
+                                "id": "12",
+                                "goal": "Goal -02",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "Medium",
+                                "category": "Security",
+                                "market": "",
+                                "priorityColor": "bg-orange-100 text-orange-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png", "avater3.png"],
+                                "comments": 3
+                              },
+                              {
+                                "id": "13",
+                                "goal": "Goal -03",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "Medium",
+                                "category": "Security",
+                                "market": "",
+                                "priorityColor": "bg-orange-100 text-orange-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png", "avater3.png"],
+                                "comments": 3
+                              }
+                            ]
+                          },
+                          {
+                            "title": "To Do",
+                            "color": "border-purple-500",
+                            "taskType": "Person",
+                            "taskTypeColor": "bg-green-100 text-green-500",
+                            "tasks": [
+                              {
+                                "id": "14",
+                                "goal": "Goal -01",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "High",
+                                "category": "Security",
+                                "market": "",
+                                "priorityColor": "bg-green-100 text-green-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png"],
+                                "comments": 1
+                              }
+                            ]
+                          },
+                          {
+                            "title": "Work in Progress",
+                            "color": "border-blue-500",
+                            "taskType": "Person",
+                            "taskTypeColor": "bg-green-100 text-green-500",
+                            "tasks": [
+                              {
+                                "id": "15",
+                                "goal": "Goal -01",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "Urgent",
+                                "category": "Design",
+                                "market": "",
+                                "priorityColor": "bg-red-100 text-red-500",
+                                "categoryColor": "bg-blue-100 text-blue-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png"],
+                                "comments": 1
+                              },
+                              {
+                                "id": "16",
+                                "goal": "Goal -02",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "High",
+                                "category": "Development",
+                                "market": "",
+                                "priorityColor": "bg-yellow-100 text-yellow-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png"],
+                                "comments": 2
+                              },
+                              {
+                                "id": "17",
+                                "goal": "Goal -03",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "Medium",
+                                "category": "Security",
+                                "market": "Marketing",
+                                "priorityColor": "bg-orange-100 text-orange-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "bg-blue-100 text-blue-500",
+                                "avatars": ["avater.png", "avater2.png"],
+                                "comments": 1
+                              }
+                            ]
+                          },
+                          {
+                            "title": "Completed",
+                            "color": "border-green-500",
+                            "taskType": "Person",
+                            "taskTypeColor": "bg-green-100 text-green-500",
+                            "tasks": [
+                              {
+                                "id": "18",
+                                "goal": "Goal -01",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "High",
+                                "category": "Security",
+                                "market": "",
+                                "priorityColor": "bg-green-100 text-green-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png", "avater3.png"],
+                                "comments": 1
+                              },
+                              {
+                                "id": "19",
+                                "goal": "Goal -02",
+                                "description": "Most teams have a difficult time integrating security into development",
+                                "priority": "Medium",
+                                "category": "Security",
+                                "market": "",
+                                "priorityColor": "bg-orange-100 text-orange-500",
+                                "categoryColor": "bg-purple-100 text-purple-500",
+                                "marketColor": "",
+                                "avatars": ["avater.png", "avater2.png"],
+                                "comments": 3
+                              }
+                            ]
+                          }
+                      ]
+                },
+                "timeline": {
+                    "name": "Timeline",
+                    "icon": "./assets/icons/sprite.svg#timeline",
+                    "style": {
+                        "width": "14px",
+                        "height": "15px"
+                    }
+                },
+                "Text": {
+                    "name": "Text",
+                    "icon": "./assets/icons/sprite.svg#text",
+                    "style": {
+                        "width": "14px",
+                        "height": "13px"
+                    }
+                },
+                "Dashboard": {
+                    "name": "Dashboard",
+                    "icon": "./assets/icons/sprite.svg#dashboard",
+                    "style": {
+                        "width": "16px",
+                        "height": "17px"
+                    },
+                "taskCards": [
+            {
+              "title": "Unassigned",
+              "value": 1,
+              "description": "Unassigned Tasks",
+              "icon": "<circle cx=\"2\" cy=\"8\" r=\"1.5\" /><circle cx=\"8\" cy=\"8\" r=\"1.5\" /><circle cx=\"14\" cy=\"8\" r=\"1.5\" />"
+            },
+            {
+              "title": "In Progress",
+              "value": 0,
+              "description": "Task in progress",
+              "icon": "<circle cx=\"2\" cy=\"8\" r=\"1.5\" /><circle cx=\"8\" cy=\"8\" r=\"1.5\" /><circle cx=\"14\" cy=\"8\" r=\"1.5\" />"
+            },
+            {
+              "title": "Completed",
+              "value": 0,
+              "description": "Task completed",
+              "icon": "<circle cx=\"2\" cy=\"8\" r=\"1.5\" /><circle cx=\"8\" cy=\"8\" r=\"1.5\" /><circle cx=\"14\" cy=\"8\" r=\"1.5\" />"
+            }
+                ],
+                "dashboardButoons": [
+            {
+              "value": "$3.2M",
+              "description": "Total Infrastructure Cost"
+            },
+            {
+              "value": "42%",
+              "description": "Cloud Services"
+            },
+            {
+              "value": "27%",
+              "description": "On-Premise Hardware"
+            },
+            {
+              "value": "18%",
+              "description": "Software Licenses"
+            },
+            {
+              "value": "13%",
+              "description": "Personnel & Support"
+            }
+                ],
+                "dashboardCharts": [
+            {
+              "code": "Line",
+              "name": "Line chart"
+            },
+            {
+              "code": "Bar",
+              "name": "Bar Chart"
+            }
+                ]
+                },
+                "Structure": {
+                    "name": "Structure",
+                    "icon": "./assets/icons/sprite.svg#table",
+                    "style": {
+                        "width": "16px",
+                        "height": "13px"
+                    }
+                },
+                "create": {
+                    "layout": {
+                        "type": "absolute",
+                        "fieldHeight": 12,
+                        "label": "top"
+                    },
+                    "fields": [
+                        {
+                            "property": "name",
+                            "type": "text",
+                            "x": 10,
+                            "y": 10
+                        },
+                        {
+                            "property": "description",
+                            "type": "textbox",
+                            "x": 10,
+                            "y": 40,
+                            "rows": 10,
+                            "columns": 80
+                        },
+                        {
+                            "property": "startDate",
+                            "type": "datePicker",
+                            "x": 10,
+                            "y": 70,
+                            "rows": 10,
+                            "columns": 80
+                        },
+                        {
+                            "property": "endDate",
+                            "type": "datePicker",
+                            "x": 80,
+                            "y": 70,
+                            "rows": 10,
+                            "columns": 80
+                        },
+                        {
+                            "property": "Status",
+                            "type": "dropdown",
+                            "options": [
+                                "Proposed",
+                                "Active",
+                                "Complete"
+                            ],
+                            "x": 10,
+                            "y": 0
+                        }
+                    ]
+                },
+                "update": {
+                    "layout": {
+                        "type": "absolute",
+                        "fieldHeight": 12,
+                        "label": "top"
+                    },
+                    "fields": [
+                        {
+                            "property": "name",
+                            "type": "text",
+                            "x": 10,
+                            "y": 10
+                        },
+                        {
+                            "property": "description",
+                            "type": "textbox",
+                            "x": 10,
+                            "y": 40,
+                            "rows": 10,
+                            "columns": 80
+                        },
+                        {
+                            "property": "startDate",
+                            "type": "datePicker",
+                            "x": 10,
+                            "y": 70,
+                            "rows": 10,
+                            "columns": 80
+                        },
+                        {
+                            "property": "endDate",
+                            "type": "datePicker",
+                            "x": 80,
+                            "y": 70,
+                            "rows": 10,
+                            "columns": 80
+                        },
+                        {
+                            "property": "Status",
+                            "type": "dropdown",
+                            "options": [
+                                "Proposed",
+                                "Active",
+                                "Complete"
+                            ],
+                            "x": 10,
+                            "y": 0
+                        }
+                    ]
+                },
+                "delete": {
+                    "layout": {
+                        "type": "absolute",
+                        "fieldHeight": 12,
+                        "label": "top"
+                    },
+                    "fields": [
+                        {
+                            "property": "name",
+                            "type": "text",
+                            "x": 10,
+                            "y": 10
+                        }
+                    ]
+                },
+                "insights": {
+                    "users": [
+                        {
+                          "id": 1,
+                          "name": "John Doe"
+                        },
+                        {
+                          "id": 2,
+                          "name": "Amin Khan"
+                        },
+                        {
+                          "id": 3,
+                          "name": "Sara Ali"
+                        }
+                    ],
+                    "insightIcons": [
+                        {
+                          "name": "Personal Notes",
+                          "icon": "../../../assets/icons/notes.svg",
+                          "type": "personal_notes",
+                          "data": [
+                            {
+                              "id": "1",
+                              "author": "You",
+                              "avatar": "../../../assets/avatar/profileImg.png",
+                              "timestamp": "Today, 10:30 AM",
+                              "content": "Need to review cloud cost optimization before next meeting.",
+                              "taggedCards": [
+                                {
+                                    "id": "1",
+                                    "title": "Goal",
+                                    "name": "Optimize IT Cost & Efficiency",
+                                    "description": "Optimize infrastructure and resource utilization to reduce overall computing expenses while maintaining performance and scalability.",
+                                    "icon": "./assets/icons/sprite.svg#goal"
+                                },
+                                {
+                                    "id": "3",
+                                    "title": "Goal",
+                                    "name": "Improve Operational Resilience",
+                                    "description": "Closest latest underlying we pivot go competitors rehydrate feed power. Activities prioritize downloaded do best high 30,000ft. Harvest marketing pants.",
+                                    "icon": "./assets/icons/sprite.svg#goal"
+                                }
+                              ],
+                              "attachments": [],
+                              "reactions": [
+                                { "emoji": "👍", "user": "John", "timestamp": "5/15/2023, 9:30 AM" },
+                                { "emoji": "👍", "user": "Alice", "timestamp": "5/15/2023, 10:15 AM" },
+                                { "emoji": "❤️", "user": "Sarah", "timestamp": "5/16/2023, 11:20 AM" },
+                                { "emoji": "❤️", "user": "Mike", "timestamp": "5/16/2023, 3:05 PM" }
+                              ]
+                            },
+                            {
+                              "id": "2",
+                              "author": "You",
+                              "avatar": "../../../assets/avatar/profileImg.png",
+                              "timestamp": "Yesterday, 2:15 PM",
+                              "content": "Consider AWS reserved instances for stable workloads.",
+                              "taggedCards": []
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Group Chat",
+                          "icon": "../../../assets/icons/chatBlack.svg",
+                          "type": "group_chat",
+                          "data":  {
+                            "groups": [
+                                {
+                                  "id": "1",
+                                  "name": "IT Strategy Team",
+                                  "avatar": "../../../assets/avatar/profileImg.png",
+                                  "unreadCount": 3,
+                                  "messages": [
+                                    {
+                                      "id": "1",
+                                      "author": "You",
+                                      "avatar": "../../../assets/avatar/profileImg.png",
+                                      "timestamp": "Today, 10:30 AM",
+                                      "content": "Need to review cloud cost optimization before next meeting."
+                                    },
+                                    {
+                                      "id": "2",
+                                      "author": "Monika Rose",
+                                      "avatar": "../../../assets/icons/PH.svg",
+                                      "timestamp": "Yesterday, 2:15 PM",
+                                      "content": "Consider AWS reserved instances for stable workloads."
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "2",
+                                  "name": "Cloud Migration",
+                                  "avatar": "../../../assets/icons/PH.svg",
+                                  "unreadCount": 0,
+                                  "messages": [
+                                    {
+                                      "id": "1",
+                                      "author": "You",
+                                      "avatar": "../../../assets/avatar/profileImg.png",
+                                      "timestamp": "Today, 10:30 AM",
+                                      "content": "Need to review cloud cost optimization before next meeting."
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "3",
+                                  "name": "Cost Optimization",
+                                  "avatar": "../../../assets/avatar/profileImg.png",
+                                  "unreadCount": 2,
+                                  "messages": [
+                                    {
+                                      "id": "1",
+                                      "author": "You",
+                                      "avatar": "../../../assets/avatar/profileImg.png",
+                                      "timestamp": "Today, 10:30 AM",
+                                      "content": "Need to review cloud cost optimization before next meeting."
+                                    },
+                                    {
+                                      "id": "2",
+                                      "author": "Monika Rose",
+                                      "avatar": "../../../assets/avatar/profileImg.png",
+                                      "timestamp": "Yesterday, 2:15 PM",
+                                      "content": "Consider AWS reserved instances for stable workloads."
+                                    }
+                                  ]
+                                }
+                              ]
+                          }
+                        },
+                        {
+                          "name": "Tech Support",
+                          "icon": "../../../assets/icons/union1.svg",
+                          "type": "tech_support",
+                          "data": [
+                            {
+                              "id": "1",
+                              "author": "Sarah Technical",
+                              "avatar": "../../../assets/avatar/profileImg.png",
+                              "timestamp": "Today, 10:45 AM",
+                              "content": "How can I help with your cloud infrastructure today?"
+                            },
+                            {
+                              "id": "2",
+                              "author": "Michael Support",
+                              "avatar": "../../../assets/avatar/profileImg.png",
+                              "timestamp": "Today, 9:30 AM",
+                              "content": "I am available to help with any IT support issues."
+                            },
+                            {
+                              "id": "3",
+                              "author": "Jessica Help",
+                              "avatar": "../../../assets/avatar/profileImg.png",
+                              "timestamp": "Yesterday, 4:15 PM",
+                              "content": "Let me know if you need help with system administration tasks."
+                            }
+                          ]
+                        }
+                    ]
+                }
+            }
+    }
+    },
+    "sidenav": [
+        {
+            "Title": "Home",
+            "Route": "home",
+            "Icon": "./assets/icons/dashboardIcons.svg#home",
+            "Icon2": "./assets/icons/sidenavIcons.svg#home",
+            "isNested": "false",
+            "end": "false",
+            "child": []
+        },
+        {
+            "Title": "Discover",
+            "Route": "discover",
+            "Icon": "./assets/icons/dashboardIcons.svg#discover",
+            "Icon2": "./assets/icons/sidenavIcons.svg#discover",
+            "isNested": "false",
+            "end": "false",
+            "child": []
+        },
+        {
+            "Title": "Analyze",
+            "Route": "analyze",
+            "Icon": "./assets/icons/dashboardIcons.svg#analyze",
+            "Icon2": "./assets/icons/sidenavIcons.svg#analyze",
+            "isNested": "false",
+            "end": "false",
+            "child": []
+        },
+        {
+            "Title": "Action",
+            "Route": "action",
+            "Icon": "./assets/icons/dashboardIcons.svg#action",
+            "Icon2": "./assets/icons/sidenavIcons.svg#action",
+            "isNested": "false",
+            "end": "false",
+            "child": []
+        },
+        {
+            "Title": "Reflect",
+            "Route": "reflect",
+            "Icon": "./assets/icons/dashboardIcons.svg#reflect",
+            "Icon2": "./assets/icons/sidenavIcons.svg#reflect",
+            "isNested": "false",
+            "end": "false",
+            "child": []
+        },
+        {
+            "Title": "Strategy",
+            "isNested": "true",
+            "Icon2": "./assets/icons/sidenavIcons.svg#strategy",
+            "Route": "strategy",
+            "end": "false",
+            "child": [
+                {
+                    "Title": "Goals",
+                    "Route": "goals",
+                    "Icon": "./assets/icons/dashboardIcons.svg#goals"
+                },
+                {
+                    "Title": "Drivers",
+                    "Route": "drivers",
+                    "Icon": "./assets/icons/dashboardIcons.svg#drivers"
+                },
+                {
+                    "Title": "Initiatives",
+                    "Route": "initiatives",
+                    "Icon": "./assets/icons/dashboardIcons.svg#initiatives"
+                },
+                {
+                    "Title": "Measures",
+                    "Route": "measures",
+                    "Icon": "./assets/icons/dashboardIcons.svg#measures"
+                },
+                {
+                    "Title": "Risks",
+                    "Route": "risks",
+                    "Icon": "./assets/icons/dashboardIcons.svg#risks"
+                },
+                {
+                    "Title": "Constraints",
+                    "Route": "constraints",
+                    "Icon": "./assets/icons/dashboardIcons.svg#constraints"
+                }
+            ]
+        },
+        {
+            "Title": "Business Processes",
+            "isNested": "true",
+            "Icon2": "./assets/icons/sidenavIcons.svg#business",
+            "Route": "business",
+            "end": "false",
+            "child": [
+                {
+                    "Title": "IT Service Delivery",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "IT Resource Provisioning",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "Vendor Management",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                }
+            ]
+        },
+        {
+            "Title": "Technical",
+            "isNested": "true",
+            "Icon2": "./assets/icons/sidenavIcons.svg#technical",
+            "Route": "technical",
+            "end": "false",
+            "child": [
+                {
+                    "Title": "IT Service Delivery",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "IT Resource Provisioning",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "Vendor Management",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                }
+            ]
+        },
+        {
+            "Title": "Security",
+            "isNested": "true",
+            "Icon2": "./assets/icons/sidenavIcons.svg#security",
+            "Route": "security",
+            "end": "false",
+            "child": [
+                {
+                    "Title": "IT Service Delivery",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "IT Resource Provisioning",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "Vendor Management",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                }
+            ]
+        },
+        {
+            "Title": "Innovation",
+            "isNested": "true",
+            "Icon2": "./assets/icons/sidenavIcons.svg#innovation",
+            "Route": "innovation",
+            "end": "false",
+            "child": [
+                {
+                    "Title": "IT Service Delivery",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "IT Resource Provisioning",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "Vendor Management",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                }
+            ]
+        },
+        {
+            "Title": "Implementation",
+            "isNested": "true",
+            "Icon2": "./assets/icons/sidenavIcons.svg#implement",
+            "Route": "implementation",
+            "end": "false",
+            "child": [
+                {
+                    "Title": "IT Service Delivery",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "IT Resource Provisioning",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                },
+                {
+                    "Title": "Vendor Management",
+                    "Route": "home",
+                    "Icon": "./assets/icons/dashboardIcons.svg#home"
+                }
+            ]
+        },
+        
+        {
+            "Title": "User",
+            "Route": "user",
+            "Icon": "./assets/icons/dashboardIcons.svg#users",
+            "Icon2": "./assets/icons/sidenavIcons.svg#users",
+            "isNested": "false",
+            "end": "true",
+            "child": []
+        },
+        {
+            "Title": "Teams",
+            "Route": "teams",
+            "Icon": "./assets/icons/dashboardIcons.svg#teams",
+            "Icon2": "./assets/icons/sidenavIcons.svg#teams",
+            "isNested": "false",
+            "end": "true",
+            "child": []
+        },
+        {
+            "Title": "Settings",
+            "Route": "settings",
+            "Icon": "./assets/icons/dashboardIcons.svg#settings",
+            "Icon2": "./assets/icons/sidenavIcons.svg#settings",
+            "isNested": "false",
+            "end": "true",
+            "child": []
+        }
+    ]
+}

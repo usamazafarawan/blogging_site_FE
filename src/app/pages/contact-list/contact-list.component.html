@@ -1,0 +1,113 @@
+<div class="w-full h-full flex flex-col lg:flex-row">
+    <!-- Left Side - Contact List -->
+    <div class="w-full lg:w-[40%] bg-[#FAF9FF]">
+        <div class="flex flex-wrap flex-row p-4 lg:p-6">
+            <div class="flex flex-row justify-between items-center w-full">
+                <div class="flex flex-row gap-3">
+                    <img src="./assets/icons/Menu.png" alt="Menu Icon" class="cursor-pointer w-8 h-8 lg:w-[35px] lg:h-[35px]">
+                    <h3 class="font-lato font-bold text-lg lg:text-[20px] leading-[32px] tracking-[0px] text-[#1A1C1D]">
+                        Contacts
+                    </h3>
+                </div>
+
+                <div class="flex flex-row gap-1">
+                    <img src="./assets/icons/right_icon.png" alt="Right Icon" class="cursor-pointer w-8 h-8 lg:w-[35px] lg:h-[35px]">
+                    <img src="./assets/icons/left_icon.png" alt="Left Icon" class="cursor-pointer w-8 h-8 lg:w-[35px] lg:h-[35px]">
+                </div>
+            </div>
+        </div>
+
+        <hr class="border border-[#ECEEF5] my-2">
+
+        <div class="p-4 lg:p-6 flex flex-col">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    placeholder="Search for a contact" 
+                    (input)="filterContacts()"   
+                    [(ngModel)]="searchText"
+                    class="font-lato font-normal text-sm lg:text-[14px] leading-[21px] tracking-[0px] 
+                    placeholder:text-[#8083A3] outline-none border-none bg-transparent focus:ring-0 w-full pr-8" 
+                />
+                <img src="./assets/icons/search_icon.png" alt="Filter Icon"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer w-3 h-3 lg:w-[15px] lg:h-[15px]">
+            </div>
+
+            <span class="font-lato font-bold text-sm lg:text-[16px] leading-[100%] tracking-[0px] mt-2">
+                Name, email or phone number
+            </span>
+
+            <div class="mt-4 lg:mt-8 space-y-4 lg:space-y-6">
+                <div 
+                    (click)="selectedContactId(contact.id,i)" 
+                    *ngFor="let contact of filteredContacts; let i = index" 
+                    class="flex flex-row justify-between items-center p-2 lg:p-0 cursor-pointer hover:bg-[#F3F4F9] transition-all duration-200 ease-in-out rounded-lg"
+                >
+                    <div class="flex flex-row gap-3 lg:gap-6 items-center">
+                        <div class="relative inline-block">
+                            <ng-container *ngIf="contact.imageUrl; else placeholder">
+                                <img [src]="contact.imageUrl" alt="Profile"
+                                    class="w-10 h-10 lg:w-[40px] lg:h-[40px] rounded-[10px] object-cover">
+                            </ng-container>
+
+                            <ng-template #placeholder>
+                                <div class="w-10 h-10 lg:w-[40px] lg:h-[40px] rounded-[10px] bg-white"></div>
+                            </ng-template>
+
+                            <span class="absolute bottom-0 right-0 block w-2 h-2 lg:w-[8px] lg:h-[8px] rounded-full ring-2 ring-white"
+                                [style.backgroundColor]="contact.status">
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <span class="font-lato font-bold text-sm lg:text-[14px] leading-[21px] tracking-[0px] text-[#1A1C1D]">
+                                {{contact.name}}
+                            </span>
+
+                            <span class="font-lato font-normal text-xs lg:text-[14px] leading-[21px] tracking-[0px] text-[#8083A3]">
+                                {{contact.title}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div *ngIf="selectedIndex == i; else otherContent" class="flex flex-row gap-1 lg:gap-2">
+                        <div
+                            class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-[#EDEDF7] cursor-pointer">
+                            <img src="./assets/icons/chat_color_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
+                        </div>
+                        <div
+                            class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-[#EDEDF7] cursor-pointer">
+                            <img src="./assets/icons/call_color_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
+                        </div>
+                        <div
+                            class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-[#EDEDF7] cursor-pointer">
+                            <img src="./assets/icons/menu_color_icon.png" alt="Icon" class="w-3 h-1 lg:w-auto lg:h-auto">
+                        </div>
+                    </div>
+
+                    <ng-template #otherContent>
+                        <div class="flex flex-row gap-1 lg:gap-2">
+                            <div
+                                class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white cursor-pointer">
+                                <img src="./assets/icons/chat_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
+                            </div>
+                            <div
+                                class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white cursor-pointer">
+                                <img src="./assets/icons/call_icon.png" alt="Icon" class="w-2 h-2 lg:w-[10px] lg:h-[10px]">
+                            </div>
+                            <div
+                                class="w-8 h-8 lg:w-[36px] lg:h-[36px] rounded-[10px] border border-[#ECEEF5] flex items-center justify-center bg-white cursor-pointer">
+                                <img src="./assets/icons/menu_icon.png" alt="Icon" class="w-3 h-1 lg:w-auto lg:h-auto">
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side - Contact Details -->
+    <div class="w-full lg:w-[60%] bg-white">
+        <app-contact-detail-page [selectedContactId]="selectedId"></app-contact-detail-page>
+    </div>
+</div>
