@@ -1,0 +1,167 @@
+<!-- header.component.html -->
+<header class="sticky top-0 z-50 bg-[#F5F6F7] shadow-sm">
+  <div class="w-full">
+    <div class="flex justify-around items-center h-20">
+      <!-- Logo -->
+
+      <div class="flex items-center">
+        <img class="h-15 w-30" src="assets/images/sap_logo.png" alt="Logo" />
+        <!-- <span class="ml-3 font-semibold text-lg">Learning</span> -->
+        <!-- Nav Links -->
+        <nav class="hidden md:flex space-x-8">
+          <!-- SAP Functionals -->
+          <div class="relative group">
+            <a routerLink="/dashboard"
+              class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600 flex items-center">
+              SAP Functionals
+            </a>
+
+            <!-- Dropdown -->
+            <div
+              class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-lg p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <a routerLink="/dashboard/fi"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP FICO</a>
+              <a routerLink="/dashboard/mm"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Material Management</a>
+              <a routerLink="/dashboard/sd"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Sales & Distribution</a>
+              <a routerLink="/dashboard/pp"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Production Planning</a>
+              <a routerLink="/dashboard/hr"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Human Resource</a>
+            </div>
+          </div>
+
+          <!-- SAP Technical -->
+          <div class="relative group">
+            <a routerLink="/stocks"
+              class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600 flex items-center">
+              SAP Technical
+            </a>
+
+            <div
+              class="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <a routerLink="/stocks/abap"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP ABAP</a>
+              <a routerLink="/stocks/fiori"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Fiori</a>
+              <a routerLink="/stocks/cloud"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Public Cloud</a>
+              <a routerLink="/stocks/basis"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP BASIS</a>
+              <a routerLink="/stocks/bas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP
+                BAS (Business App Studio)</a>
+              <a routerLink="/stocks/cpi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP
+                CPI</a>
+              <a routerLink="/stocks/btp" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP
+                BTP</a>
+            </div>
+          </div>
+
+          <!-- SAP Latest Technology -->
+          <div class="relative group">
+            <a routerLink="/portfolio"
+              class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600 flex items-center">
+              SAP Latest Technology
+            </a>
+
+            <div
+              class="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <a routerLink="/portfolio/rap"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP RAP</a>
+              <a routerLink="/portfolio/ariba"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Ariba</a>
+              <a routerLink="/portfolio/successfactors"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SuccessFactors</a>
+              <a routerLink="/portfolio/joule"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Joule</a>
+            </div>
+          </div>
+        </nav>
+
+
+
+
+      </div>
+
+
+      <!-- Right Actions -->
+      <div class="flex items-center space-x-4">
+        <span class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600">Explore SAP</span>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          class="w-6 h-6 text-[#354A5F] cursor-pointer hover:text-blue-600">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+        </svg>
+
+        <!-- Hamburger (only mobile) -->
+        <button class="md:hidden focus:outline-none" (click)="isMenuOpen = !isMenuOpen">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#354A5F]" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Mobile Menu Drawer -->
+  <div *ngIf="isMenuOpen" class="md:hidden absolute top-20 left-0 w-full bg-white shadow-lg z-50">
+    <ul class="flex flex-col divide-y divide-gray-200">
+      <!-- Parent Item -->
+      <li>
+        <button (click)="toggleSubmenu('functionals')"
+          class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
+          SAP Functionals
+          <span [class.rotate-180]="openSubmenu==='functionals'" class="transition-transform">&#9662;</span>
+        </button>
+        <ul *ngIf="openSubmenu==='functionals'" class="bg-gray-50">
+          <li><a routerLink="/dashboard/fi" class="block px-6 py-2">SAP FICO</a></li>
+          <li><a routerLink="/dashboard/mm" class="block px-6 py-2">SAP Material Management </a></li>
+          <li><a routerLink="/dashboard/sd" class="block px-6 py-2">SAP Sales & Distribution</a></li>
+          <li><a routerLink="/dashboard/sd" class="block px-6 py-2">SAP Production Planning </a></li>
+          <li><a routerLink="/dashboard/sd" class="block px-6 py-2">SAP Human Resource</a></li>
+
+        </ul>
+      </li>
+
+      <li>
+        <button (click)="toggleSubmenu('technical')"
+          class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
+          SAP Technical
+          <span [class.rotate-180]="openSubmenu==='technical'" class="transition-transform">&#9662;</span>
+        </button>
+        <ul *ngIf="openSubmenu==='technical'" class="bg-gray-50">
+          <li><a routerLink="/stocks/abap" class="block px-6 py-2">SAP ABAP</a></li>
+          <li><a routerLink="/stocks/fiori" class="block px-6 py-2">SAP Fiori</a></li>
+          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP Public Cloud</a></li>
+
+          <li><a routerLink="/stocks/abap" class="block px-6 py-2">SAP BASIS</a></li>
+          <li><a routerLink="/stocks/fiori" class="block px-6 py-2">SAP BAS (Business Application Studio)</a></li>
+          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP CPI </a></li>
+          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP BTP (Business Technology Platform) </a></li>
+
+        </ul>
+      </li>
+
+
+
+      <li>
+        <button (click)="toggleSubmenu('technology')"
+          class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
+          SAP Latest Technology
+          <span [class.rotate-180]="openSubmenu==='technology'" class="transition-transform">&#9662;</span>
+        </button>
+        <ul *ngIf="openSubmenu==='technology'" class="bg-gray-50">
+          <li><a routerLink="/stocks/abap" class="block px-6 py-2">SAP RAP</a></li>
+          <li><a routerLink="/stocks/fiori" class="block px-6 py-2">SAP Ariba </a></li>
+          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">Success Factors</a></li>
+          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP Joule </a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
