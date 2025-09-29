@@ -38,7 +38,7 @@
     <button
       *ngFor="let slide of slides; let i = index"
       (click)="goToSlide(i)"
-      class="w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300"
+      class="w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 cursor-pointer"
       [ngClass]="
         currentIndex === i
           ? 'bg-blue-600 scale-110'
@@ -91,3 +91,67 @@
     </svg>
   </div>
 </div>
+
+<div class="w-full max-w-6xl mx-auto mt-10">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-6">
+    <!-- Left: Title with vertical bar -->
+    <div class="flex items-center space-x-3">
+      <div class="w-1 h-8 bg-blue-600"></div>
+      <h2 class="text-xl font-semibold">Latest resources</h2>
+    </div>
+
+    <!-- Right: Navigation buttons -->
+  <div class="flex space-x-3">
+  <!-- Previous Button -->
+  <button 
+    (click)="prevSlide()" 
+    class="w-10 h-10 flex items-center justify-center bg-blue-600 rounded-md hover:bg-blue-700 transition cursor-pointer "
+  >
+    <i class="fas fa-arrow-left text-white"></i>
+  </button>
+
+  <!-- Next Button -->
+  <button 
+    (click)="nextSlide()" 
+    class="w-10 h-10 flex items-center justify-center bg-blue-600 rounded-md hover:bg-blue-700 transition  cursor-pointer"
+  >
+    <i class="fas fa-arrow-right text-white"></i>
+  </button>
+</div>
+  </div>
+
+  <!-- Carousel -->
+<div class="overflow-hidden">
+  <div 
+    class="flex transition-transform duration-500"
+    [style.transform]="'translateX(-' + currentIndexImage * (100 / itemsPerView) + '%)'"
+  >
+    <div 
+      *ngFor="let slide of slides_images" 
+      class="relative flex-shrink-0 px-2"
+      [style.width.%]="100 / itemsPerView"
+    >
+      <!-- Card -->
+      <div 
+        class="relative w-full h-60 rounded-lg overflow-hidden shadow-md 
+               transition duration-300 hover:shadow-2xl hover:ring-2 hover:ring-blue-400 hover:ring-offset-2"
+        [ngStyle]="{
+          'background-image': 
+            'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.3), transparent), url(' + slide.img + ')',
+          'background-size': 'cover',
+          'background-position': 'center'
+        }"
+      >
+        <!-- Text Content -->
+        <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-lg font-semibold drop-shadow-md">{{ slide.title }}</h3>
+          <p class="text-sm opacity-90">{{ slide.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
