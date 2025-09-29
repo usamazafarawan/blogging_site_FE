@@ -57,6 +57,33 @@ export class MainPageComponent {
   ];
 
 
+  
+   featuredItems = [
+  { 
+    img: 'assets/images/image_8.png', 
+    title: 'Explore the Majestic Mountains', 
+    description: 'Discover breathtaking views and the tranquility of sunrise over the mountain peaks, perfect for adventure seekers and nature lovers alike.' 
+  },
+  { 
+    img: 'assets/images/image_9.png', 
+    title: 'Feel the Ocean Breeze', 
+    description: 'Relax by the shore with calming waves and fresh sea air — a refreshing escape to unwind and recharge your mind.' 
+  },
+  { 
+    img: 'assets/images/image_10.png', 
+    title: 'Walk the Serene Forest Path', 
+    description: 'Immerse yourself in the soothing sounds of birds and rustling leaves as you stroll through lush, green trails in nature.' 
+  },
+  { 
+    img: 'assets/images/image_11.png', 
+    title: 'Adventure in the Desert Dunes', 
+    description: 'Experience the golden sands and endless horizons of the desert, where beauty meets the thrill of exploration.' 
+  }
+];
+
+
+
+
   currentIndex = 0;
   intervalId: any;
   autoSlideTime = 3000; // 3 seconds
