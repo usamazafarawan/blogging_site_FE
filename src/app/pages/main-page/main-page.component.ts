@@ -6,11 +6,13 @@ import { ToastrService } from 'ngx-toastr';
 import { RequestService } from '../../core/services/request.service';
 import { MainRequestServiceService } from '../../core/services/main-request-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule ,HeaderComponent,FooterComponent ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
   providers: [MainRequestServiceService, RequestService]
