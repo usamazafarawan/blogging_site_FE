@@ -8,40 +8,16 @@ import { MainRequestServiceService } from '../../core/services/main-request-serv
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
   providers: [MainRequestServiceService, RequestService]
 })
-export class HeaderComponent {
-
-  isMenuOpen = false;
-  openSubmenu: string | null = null;
-  isUserMenuOpen = false;
+export class LoginComponent {
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
   }
-
-  toggleSubmenu(menu: string) {
-    this.openSubmenu = this.openSubmenu === menu ? null : menu;
-  }
-
-
-  main_page(){
-    this.router.navigate(["/main-page"]);
-  }
-
-  login() {
-    this.isUserMenuOpen  = false
-    this.router.navigate(["/login"]);
-  }
-
-  register() {
-        this.isUserMenuOpen  = false
-    this.router.navigate(["/register"]);
-  }
-
 
 }

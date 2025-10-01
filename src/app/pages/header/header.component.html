@@ -5,7 +5,7 @@
       <!-- Logo -->
 
       <div class="flex items-center">
-        <img class="h-15 w-30" src="assets/images/sap_logo.png" alt="Logo" />
+        <img (click)="main_page()" class="h-15 w-30" src="assets/images/sap_logo.png" alt="Logo" />
         <!-- <span class="ml-3 font-semibold text-lg">Learning</span> -->
         <!-- Nav Links -->
         <nav class="hidden md:flex space-x-8">
@@ -95,8 +95,31 @@
             d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
         </svg>
 
+        <div class="relative group hidden md:block">
+          <button>
+            <i class="fa-regular fa-user text-2xl text-[#354A5F] cursor-pointer hover:text-blue-600"></i>
+          </button>
+
+          <div
+            class="absolute top-full right-0 mt-2 w-52 bg-white shadow-lg rounded-lg p-4 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <!-- Login Button -->
+            <a  (click)="login()"
+              class="block w-full text-center px-4 py-2 mb-2 text-sm font-medium text-white bg-[#354A5F] rounded-md hover:bg-blue-600 transition">
+              Login
+            </a>
+            <!-- Register Button -->
+            <a (click)="register()" 
+              class="block w-full text-center px-4 py-2 text-sm font-medium text-[#354A5F] border border-[#354A5F] rounded-md hover:bg-gray-100 transition">
+              Register
+            </a>
+          </div>
+        </div>
+        <!-- User Icon (only mobile) -->
+        <button class="md:hidden focus:outline-none" (click)="isUserMenuOpen = !isUserMenuOpen; isMenuOpen = false">
+          <i class="fa-regular fa-user text-2xl   text-[#354A5F] cursor-pointer hover:text-blue-600 "></i>
+        </button>
         <!-- Hamburger (only mobile) -->
-        <button class="md:hidden focus:outline-none" (click)="isMenuOpen = !isMenuOpen">
+        <button class="md:hidden focus:outline-none" (click)="isMenuOpen = !isMenuOpen;isUserMenuOpen = false">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#354A5F]" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -161,6 +184,27 @@
           <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP Joule </a></li>
 
         </ul>
+      </li>
+    </ul>
+  </div>
+
+
+  <div *ngIf="isUserMenuOpen" class="md:hidden absolute top-20 left-0 w-full bg-white shadow-lg z-50">
+    <ul class="flex flex-col divide-y divide-gray-200">
+      <!-- Parent Item -->
+      <li>
+       <a  (click)="login()"  
+   class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
+  Login
+</a>
+
+      </li>
+
+      <li>
+      <a  (click)="register()"  
+   class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
+  Register
+</a>
       </li>
     </ul>
   </div>
