@@ -10,18 +10,18 @@
         <!-- Nav Links -->
         <nav class="hidden md:flex space-x-8">
           <!-- SAP Functionals -->
-          <div class="relative group">
+          <div class="relative group" *ngFor="let category of categories">
             <a routerLink="/dashboard"
               class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600 flex items-center">
-              SAP Functionals
+              {{category.name}}
             </a>
 
             <!-- Dropdown -->
-            <div
+            <div  
               class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-lg p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <a routerLink="/dashboard/fi"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP FICO</a>
-              <a routerLink="/dashboard/mm"
+              <a routerLink="/dashboard/fi" *ngFor="let subCategory of category.subCategories"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">{{subCategory.name}}</a>
+              <!-- <a routerLink="/dashboard/mm"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Material Management</a>
               <a routerLink="/dashboard/sd"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Sales & Distribution</a>
@@ -29,11 +29,11 @@
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Production Planning</a>
               <a routerLink="/dashboard/hr"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Human Resource</a>
-            </div>
+            -->
+              </div>
           </div>
 
-          <!-- SAP Technical -->
-          <div class="relative group">
+          <!-- <div class="relative group">
             <a routerLink="/stocks"
               class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600 flex items-center">
               SAP Technical
@@ -58,7 +58,6 @@
             </div>
           </div>
 
-          <!-- SAP Latest Technology -->
           <div class="relative group">
             <a routerLink="/portfolio"
               class="text-[20px] font-sans text-[#354A5F] cursor-pointer hover:text-blue-600 flex items-center">
@@ -76,7 +75,7 @@
               <a routerLink="/portfolio/joule"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Joule</a>
             </div>
-          </div>
+          </div> -->
         </nav>
 
 

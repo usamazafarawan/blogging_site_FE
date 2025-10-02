@@ -6,8 +6,7 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class MainRequestServiceService {
- baseUrl = 'http://localhost:3000/api/v1/auth';
- constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * Gets data.
@@ -46,43 +45,6 @@ export class MainRequestServiceService {
    */
   deleteData(url: string): Observable<any> {
     return this.http.delete(url);
-  }
-
-  /**
-   * Patches data.
-   * @param string url API url
-   * @param any obj Data to be Patched
-   * @returns Observable<any>
-   */
-  patchData(url: string, obj: any): Observable<any> {
-    return this.http.patch(url, obj);
-  }
-  getRepos() {
-    return this.http.get<any[]>(`${this.baseUrl}/data/repos`);
-  }
-
-  getCommits(owner: string, repo: string) {
-    return this.http.get<any[]>(`${this.baseUrl}/data/commits`, {
-      params: { owner, repo },
-    });
-  }
-
-  getIssues(owner: string, repo: string) {
-    return this.http.get<any[]>(`${this.baseUrl}/data/issues`, {
-      params: { owner, repo },
-    });
-  }
-
-   getPulls(owner: string, repo: string) {
-    return this.http.get<any[]>(`${this.baseUrl}/data/pulls`, {
-      params: { owner, repo },
-    });
-  }
-
-  getOrganizationMembers(org: string) {
-    return this.http.get<any[]>(`${this.baseUrl}/data/users`, {
-      params: { org },
-    });
   }
 
 }

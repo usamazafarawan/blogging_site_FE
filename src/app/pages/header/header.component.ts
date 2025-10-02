@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RequestService } from '../../core/services/request.service';
 import { MainRequestServiceService } from '../../core/services/main-request-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminService } from '../../core/services/admin.service';
 
 @Component({
   selector: 'app-header',
@@ -15,13 +16,21 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './header.component.scss',
   providers: [MainRequestServiceService, RequestService]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit  {
 
   isMenuOpen = false;
   openSubmenu: string | null = null;
   isUserMenuOpen = false;
+  categories: any[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
+  constructor(private router: Router, private adminService:AdminService,
+     private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
+  }
+
+
+  ngOnInit(): void {
+    this.getAllCategories();
+
   }
 
   toggleSubmenu(menu: string) {
@@ -41,6 +50,23 @@ export class HeaderComponent {
   register() {
         this.isUserMenuOpen  = false
     this.router.navigate(["/register"]);
+  }
+
+
+    getAllCategories() {
+
+    this.adminService.getCategories().subscribe({
+      next: (res: any) => {
+        console.log('res: ', res);
+        if (res && res?.length) {
+          this.categories = res;
+        }
+      },
+      error: (err: any) => {
+        this.toastr.success('Error while fetching categories', err);
+      }
+    }
+    )
   }
 
 

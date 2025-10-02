@@ -4,6 +4,7 @@ import { LoginComponent } from "./pages/login/login.component";
 import { RegistrationUserComponent } from "./pages/register-user-page/register-user-page.component";
 import { AdminLayoutComponent } from "./pages/adminModule/admin-layout/admin-layout.component";
 import { AdminDashboardComponent } from "./pages/adminModule/admin-dashboard/admin-dashboard.component";
+import { AuthGuard } from "./core/services/auth.guard";
 export const routes: Routes = [
 
   {
@@ -24,6 +25,7 @@ export const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: "dashboard", component: AdminDashboardComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" }
