@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RequestService } from '../../core/services/request.service';
 import { MainRequestServiceService } from '../../core/services/main-request-service.service';
@@ -11,7 +11,7 @@ import { AdminService } from '../../core/services/admin.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule,RouterModule    ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   providers: [MainRequestServiceService, RequestService]

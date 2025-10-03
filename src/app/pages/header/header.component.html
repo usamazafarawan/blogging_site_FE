@@ -131,62 +131,26 @@
 
   <!-- Mobile Menu Drawer -->
   <div *ngIf="isMenuOpen" class="md:hidden absolute top-20 left-0 w-full bg-white shadow-lg z-50">
-    <ul class="flex flex-col divide-y divide-gray-200">
-      <!-- Parent Item -->
-      <li>
-        <button (click)="toggleSubmenu('functionals')"
-          class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
-          SAP Functionals
-          <span [class.rotate-180]="openSubmenu==='functionals'" class="transition-transform">&#9662;</span>
-        </button>
-        <ul *ngIf="openSubmenu==='functionals'" class="bg-gray-50">
-          <li><a routerLink="/dashboard/fi" class="block px-6 py-2">SAP FICO</a></li>
-          <li><a routerLink="/dashboard/mm" class="block px-6 py-2">SAP Material Management </a></li>
-          <li><a routerLink="/dashboard/sd" class="block px-6 py-2">SAP Sales & Distribution</a></li>
-          <li><a routerLink="/dashboard/sd" class="block px-6 py-2">SAP Production Planning </a></li>
-          <li><a routerLink="/dashboard/sd" class="block px-6 py-2">SAP Human Resource</a></li>
+  <ul class="flex flex-col divide-y divide-gray-200">
+    <!-- Loop categories -->
+    <li *ngFor="let cat of categories">
+      <button (click)="toggleSubmenu(cat._id)"
+        class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
+        {{ cat.name }}
+        <span [class.rotate-180]="openSubmenu===cat._id" class="transition-transform">&#9662;</span>
+      </button>
 
-        </ul>
-      </li>
-
-      <li>
-        <button (click)="toggleSubmenu('technical')"
-          class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
-          SAP Technical
-          <span [class.rotate-180]="openSubmenu==='technical'" class="transition-transform">&#9662;</span>
-        </button>
-        <ul *ngIf="openSubmenu==='technical'" class="bg-gray-50">
-          <li><a routerLink="/stocks/abap" class="block px-6 py-2">SAP ABAP</a></li>
-          <li><a routerLink="/stocks/fiori" class="block px-6 py-2">SAP Fiori</a></li>
-          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP Public Cloud</a></li>
-
-          <li><a routerLink="/stocks/abap" class="block px-6 py-2">SAP BASIS</a></li>
-          <li><a routerLink="/stocks/fiori" class="block px-6 py-2">SAP BAS (Business Application Studio)</a></li>
-          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP CPI </a></li>
-          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP BTP (Business Technology Platform) </a></li>
-
-        </ul>
-      </li>
-
-
-
-      <li>
-        <button (click)="toggleSubmenu('technology')"
-          class="w-full text-left px-4 py-3 text-[#354A5F] font-semibold flex justify-between items-center">
-          SAP Latest Technology
-          <span [class.rotate-180]="openSubmenu==='technology'" class="transition-transform">&#9662;</span>
-        </button>
-        <ul *ngIf="openSubmenu==='technology'" class="bg-gray-50">
-          <li><a routerLink="/stocks/abap" class="block px-6 py-2">SAP RAP</a></li>
-          <li><a routerLink="/stocks/fiori" class="block px-6 py-2">SAP Ariba </a></li>
-          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">Success Factors</a></li>
-          <li><a routerLink="/stocks/cloud" class="block px-6 py-2">SAP Joule </a></li>
-
-        </ul>
-      </li>
-    </ul>
-  </div>
-
+      <!-- Subcategories -->
+      <ul *ngIf="openSubmenu===cat._id" class="bg-gray-50">
+        <li *ngFor="let sub of cat.subCategories">
+          <a [routerLink]="'/dashboard/' + sub._id" class="block px-6 py-2 text-[#4B5563] ">
+            {{ sub.name }}
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
   <div *ngIf="isUserMenuOpen" class="md:hidden absolute top-20 left-0 w-full bg-white shadow-lg z-50">
     <ul class="flex flex-col divide-y divide-gray-200">
