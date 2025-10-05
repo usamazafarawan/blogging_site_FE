@@ -6,6 +6,8 @@ import { AdminLayoutComponent } from "./pages/adminModule/admin-layout/admin-lay
 import { AdminDashboardComponent } from "./pages/adminModule/admin-dashboard/admin-dashboard.component";
 import { AuthGuard } from "./core/services/auth.guard";
 import { BlogsListPageComponent } from "./pages/blogs-list/blogs-list.component";
+import { AddBlogComponent } from "./pages/adminModule/add-blog/add-blog.component";
+import { AdminBlogListComponent } from "./pages/adminModule/admin-blogs-list/admin-blogs-list.component";
 export const routes: Routes = [
 
   {
@@ -34,6 +36,8 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: "dashboard", component: AdminDashboardComponent },
+      { path: "add-blog", component: AddBlogComponent },
+      { path: "admin-blogs-list", component: AdminBlogListComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" }
     ]
   },
