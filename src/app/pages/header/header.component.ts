@@ -11,7 +11,7 @@ import { AdminService } from '../../core/services/admin.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule,RouterModule    ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   providers: [MainRequestServiceService, RequestService]
@@ -67,6 +67,12 @@ export class HeaderComponent implements OnInit  {
       }
     }
     )
+  }
+
+
+  navigateToBlogListPage(sub?:any){
+    console.log('sub: ', sub);
+    this.router.navigate(['/blogs-list']);
   }
 
 

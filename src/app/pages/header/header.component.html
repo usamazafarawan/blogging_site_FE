@@ -19,7 +19,7 @@
             <!-- Dropdown -->
             <div  
               class="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-lg p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <a routerLink="/dashboard/fi" *ngFor="let subCategory of category.subCategories"
+              <a routerLink="/dashboard/fi" *ngFor="let subCategory of category.subCategories"  (click)="navigateToBlogListPage(subCategory)"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">{{subCategory.name}}</a>
               <!-- <a routerLink="/dashboard/mm"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">SAP Material Management</a>
@@ -143,9 +143,9 @@
       <!-- Subcategories -->
       <ul *ngIf="openSubmenu===cat._id" class="bg-gray-50">
         <li *ngFor="let sub of cat.subCategories">
-          <a [routerLink]="'/dashboard/' + sub._id" class="block px-6 py-2 text-[#4B5563] ">
-            {{ sub.name }}
-          </a>
+       <a  (click)="navigateToBlogListPage(sub)" class="block px-6 py-2 text-[#4B5563]">
+  {{ sub.name }}
+</a>
         </li>
       </ul>
     </li>

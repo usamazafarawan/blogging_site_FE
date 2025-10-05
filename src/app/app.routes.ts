@@ -5,6 +5,7 @@ import { RegistrationUserComponent } from "./pages/register-user-page/register-u
 import { AdminLayoutComponent } from "./pages/adminModule/admin-layout/admin-layout.component";
 import { AdminDashboardComponent } from "./pages/adminModule/admin-dashboard/admin-dashboard.component";
 import { AuthGuard } from "./core/services/auth.guard";
+import { BlogsListPageComponent } from "./pages/blogs-list/blogs-list.component";
 export const routes: Routes = [
 
   {
@@ -21,6 +22,11 @@ export const routes: Routes = [
     path: "register",
     component: RegistrationUserComponent,
   },
+
+{
+  path: "blogs-list",
+  component: BlogsListPageComponent,
+},
 
   {
     path: "admin",
