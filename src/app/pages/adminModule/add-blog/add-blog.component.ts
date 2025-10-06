@@ -103,8 +103,48 @@ export class AddBlogComponent implements OnInit {
     }
   }
 
+// onSubmit() {
+//   // 🔹 Validate form and files
+//   if (this.blogForm.invalid || !this.pdfFile || !this.thumbnailFile) {
+//     this.blogForm.markAllAsTouched();
+//     this.fileError.pdf = !this.pdfFile;
+//     this.fileError.thumbnail = !this.thumbnailFile;
+//     this.toastr.warning('Please fill all required fields and upload both files.');
+//     return;
+//   }
+
+//   this.loading = true;
+
+//   // 🔹 Prepare form data for upload
+//   const formData = new FormData();
+//   formData.append('name', this.blogForm.value.name);
+//   formData.append('description', this.blogForm.value.description);
+//   formData.append('author', this.blogForm.value.author);
+//   formData.append('moduleId', this.blogForm.value.moduleId);
+//   formData.append('tags', JSON.stringify(this.tagsArray)); // ensure array is sent as string
+//   formData.append('pdfFile', this.pdfFile);
+//   formData.append('thumbnail', this.thumbnailFile);
+
+//   // 🔹 Call the API via service
+//   this.adminService.saveBlog(formData).subscribe({
+//     next: (res) => {
+//       this.router.navigate(['/admin/admin-blogs-list']);
+//       this.blogForm.reset();
+//       this.pdfFile = null;
+//       this.thumbnailFile = null;
+//       this.loading = false;
+//     },
+//     error: (err) => {
+//       console.error('Error saving blog:', err);
+//       const message = err?.error?.message || 'Error saving blog. Please try again.';
+//       this.toastr.error(message);
+//       this.loading = false;
+//     },
+//   });
+// }
+
+
 onSubmit() {
-  // 🔹 Validate form and files
   if (this.blogForm.invalid || !this.pdfFile || !this.thumbnailFile) {
     this.blogForm.markAllAsTouched();
     this.fileError.pdf = !this.pdfFile;
@@ -115,32 +155,53 @@ onSubmit() {
 
   this.loading = true;
 
-  // 🔹 Prepare form data for upload
-  const formData = new FormData();
-  formData.append('name', this.blogForm.value.name);
-  formData.append('description', this.blogForm.value.description);
-  formData.append('author', this.blogForm.value.author);
-  formData.append('moduleId', this.blogForm.value.moduleId);
-  formData.append('tags', JSON.stringify(this.tagsArray)); // ensure array is sent as string
-  formData.append('pdfFile', this.pdfFile);
-  formData.append('thumbnail', this.thumbnailFile);
+  // Convert both files to Base64 before sending
+  Promise.all([
+    this.convertToBase64(this.pdfFile),
+    this.convertToBase64(this.thumbnailFile)
+  ]).then(([pdfBase64, thumbnailBase64]) => {
+    const payload = {
+      name: this.blogForm.value.name,
+      description: this.blogForm.value.description,
+      author: this.blogForm.value.author,
+      moduleId: this.blogForm.value.moduleId,
+      tags: this.tagsArray,
+      pdfFile: pdfBase64,        // base64 string of PDF
+      thumbnail: thumbnailBase64 // base64 string of thumbnail
+    };
+      console.log('payload: ', payload);
 
-  // 🔹 Call the API via service
-  this.adminService.saveBlog(formData).subscribe({
-    next: (res) => {
-      this.router.navigate(['/admin/admin-blogs-list']);
-      this.blogForm.reset();
-      this.pdfFile = null;
-      this.thumbnailFile = null;
-      this.loading = false;
-    },
-    error: (err) => {
-      console.error('Error saving blog:', err);
-      const message = err?.error?.message || 'Error saving blog. Please try again.';
-      this.toastr.error(message);
-      this.loading = false;
-    },
+    this.adminService.saveBlog(payload).subscribe({
+      next: (res) => {
+        this.router.navigate(['/admin/admin-blogs-list']);
+        this.blogForm.reset();
+        this.pdfFile = null;
+        this.thumbnailFile = null;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error saving blog:', err);
+        const message = err?.error?.message || 'Error saving blog. Please try again.';
+        this.toastr.error(message);
+        this.loading = false;
+      },
+    });
+  }).catch((err) => {
+    console.error('Error converting files:', err);
+    this.toastr.error('Error processing files.');
+    this.loading = false;
   });
 }
+
+// 🔹 Helper function to convert a file to Base64
+convertToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = error => reject(error);
+  });
+}
+
 
 }

@@ -17,6 +17,8 @@ import { AdminService } from '../../../core/services/admin.service';
 export class AdminBlogListComponent implements OnInit {
 blogs:any[] = [];
 categoryTitle:string = 'All Blogs List';
+loading: boolean = false;
+
 
   constructor(private fb: FormBuilder,private adminService: AdminService, private router: Router, private route: ActivatedRoute,private toastr: ToastrService, private authService: AuthService) {
   
@@ -27,12 +29,15 @@ categoryTitle:string = 'All Blogs List';
   }
 
   loadBlogs() {
+      this.loading = true;
     this.adminService.getBlogs().subscribe({
       next: (res:any) => {
         this.blogs = res.data || [];
+            this.loading = false;
       },
       error: () => {
         this.toastr.error('Failed to fetch blogs');
+            this.loading = false;
       },
     });
   }
@@ -57,9 +62,29 @@ categoryTitle:string = 'All Blogs List';
     // }
   }
 
-   openPDF(pdfPath: string) {
-    console.log('pdfPath: ', pdfPath);
-    window.open( pdfPath, '_blank');
+openPDF(base64Data: string) {
+  try {
+    // 1️⃣ Remove prefix if present
+    const base64 = base64Data.replace(/^data:application\/pdf;base64,/, '');
+
+    // 2️⃣ Decode Base64 → binary
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    // 3️⃣ Convert binary → Blob
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'application/pdf' });
+
+    // 4️⃣ Create temporary blob URL and open it
+    const blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, '_blank');
+  } catch (error) {
+    console.error('Error opening PDF:', error);
+    alert('Could not open PDF file.');
   }
+}
 
 }
