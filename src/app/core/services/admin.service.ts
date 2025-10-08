@@ -67,7 +67,18 @@ export class AdminService {
       const message = err.error?.message || 'An error has occured.';
       this.toastr.error(message);
       return EMPTY;
-    }));  }
+    }));  
+  }
+
+
+  getBlogByCategoryId(id: string): Observable<any[]> {
+    return this.mainRequestService.getData(`${this.baseUrl}/blogs/category/${id}`).pipe(catchError(err => {
+      console.log("error", err)
+      const message = err.error?.message || 'An error has occured.';
+      this.toastr.error(message);
+      return EMPTY;
+    }));
+  }
 
 
 } 

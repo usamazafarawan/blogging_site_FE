@@ -167,7 +167,11 @@ onSubmit() {
       moduleId: this.blogForm.value.moduleId,
       tags: this.tagsArray,
       pdfFile: pdfBase64,        // base64 string of PDF
-      thumbnail: thumbnailBase64 // base64 string of thumbnail
+      thumbnail: thumbnailBase64, // base64 string of thumbnail
+      moduleDetail:{
+        id:this.blogForm.value.moduleId,
+        name:this.moduleList.find(m=>m.id===this.blogForm.value.moduleId)?.name || ''
+      }
     };
       console.log('payload: ', payload);
 

@@ -41,6 +41,7 @@
           <div class="text-sm text-gray-500 mt-3">
             <p><strong>Author:</strong> {{ blog.author }}</p>
             <p><strong>Date:</strong> {{ blog.createdAt | date: 'mediumDate' }}</p>
+            <p><strong>Selected Module:</strong> {{ blog?.moduleDetail?.name || '' }}</p>
           </div>
 
           <!-- Tags -->

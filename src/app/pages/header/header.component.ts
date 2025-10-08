@@ -7,6 +7,7 @@ import { RequestService } from '../../core/services/request.service';
 import { MainRequestServiceService } from '../../core/services/main-request-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminService } from '../../core/services/admin.service';
+import { GlobalDataService } from '../../core/services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit  {
   categories: any[] = [];
 
   constructor(private router: Router, private adminService:AdminService,
+    private globalDataService: GlobalDataService,
      private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService) {
   }
 
@@ -72,6 +74,7 @@ export class HeaderComponent implements OnInit  {
 
   navigateToBlogListPage(sub?:any){
     console.log('sub: ', sub);
+    this.globalDataService._selectedBlogCategory.next(sub);
     this.router.navigate(['/blogs-list']);
   }
 
