@@ -8,6 +8,7 @@ import { AuthGuard } from "./core/services/auth.guard";
 import { BlogsListPageComponent } from "./pages/blogs-list/blogs-list.component";
 import { AddBlogComponent } from "./pages/adminModule/add-blog/add-blog.component";
 import { AdminBlogListComponent } from "./pages/adminModule/admin-blogs-list/admin-blogs-list.component";
+import { BlogDetailPageComponent } from "./pages/blog-detail-page/blog-detail-page.component";
 export const routes: Routes = [
 
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
 {
   path: "blogs-list",
   component: BlogsListPageComponent,
+},
+{
+  path: "blog-details/:id",
+  component: BlogDetailPageComponent,
 },
 
   {

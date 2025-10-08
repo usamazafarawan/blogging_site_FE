@@ -10,50 +10,58 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { GlobalDataService } from '../../core/services/data.service';
 import { AdminService } from '../../core/services/admin.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-blogs-list-page',
+  selector: 'app-blog-detail-page',
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule, HeaderComponent, FooterComponent],
-  templateUrl: './blogs-list.component.html',
-  styleUrl: './blogs-list.component.scss',
+  templateUrl: './blog-detail-page.component.html',
+  styleUrl: './blog-detail-page.component.scss',
   providers: [MainRequestServiceService, RequestService]
 })
-export class BlogsListPageComponent implements OnInit, OnDestroy {
-  categoryName = '';
+export class BlogDetailPageComponent implements OnInit, OnDestroy {
+  blogDetail:any = null;
   loading: boolean = false;
-  blogs:any[] =[];
-  
+  blogName:string = '';
+    sanitizedPdfUrl: SafeResourceUrl | null = null;
+
 
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService,
-    private globalDataService: GlobalDataService, private adminService: AdminService
+    private globalDataService: GlobalDataService, private adminService: AdminService,
+      private sanitizer: DomSanitizer
+
   ) {
   }
 
   ngOnInit(): void {
-    const selectedCategoryDetail: any = this.globalDataService._selectedBlogCategory.getValue();
-    if (selectedCategoryDetail) {
-      this.categoryName = selectedCategoryDetail.name || '';
-      this.fetchBlogsByCategory(selectedCategoryDetail._id);
-    }
+      const id:string =  this.route.snapshot.paramMap.get('id') || '';
+this.getBlogDetail(id);
+    
   }
 
 
-  fetchBlogsByCategory(id: string) {
+  getBlogDetail(id: string) {
     this.loading = true;
-    this.adminService.getBlogByCategoryId(id).subscribe({
+    this.adminService.getBlogDetailById(id).subscribe({
       next: (res: any) => {
         this.loading = false;
-        if (res && res?.data?.length) {
-          this.blogs = res.data;
+        console.log('res: ', res);
+        if (res && res?.data) {
+          this.blogDetail = res.data;
+          if (this.blogDetail?.pdfPath) {
+            this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.blogDetail.pdfPath);
+          }
         }
       },
       error: (err: any) => {
         this.loading = false;
         this.toastr.success('Error while fetching blogs', err);
       }
-    });
+    }
+    )
+
   }
 
 
