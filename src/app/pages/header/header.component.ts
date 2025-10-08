@@ -75,7 +75,7 @@ export class HeaderComponent implements OnInit  {
   navigateToBlogListPage(sub?:any){
     console.log('sub: ', sub);
     this.globalDataService._selectedBlogCategory.next(sub);
-    this.router.navigate(['/blogs-list']);
+    this.router.navigate(['/blogs-list',sub._id]);
   }
 
 

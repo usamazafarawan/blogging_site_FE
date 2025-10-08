@@ -27,7 +27,7 @@ export const routes: Routes = [
   },
 
 {
-  path: "blogs-list",
+  path: "blogs-list/:id",
   component: BlogsListPageComponent,
 },
 {

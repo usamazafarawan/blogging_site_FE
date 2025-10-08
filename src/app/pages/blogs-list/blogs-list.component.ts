@@ -32,11 +32,14 @@ export class BlogsListPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const selectedCategoryDetail: any = this.globalDataService._selectedBlogCategory.getValue();
-    if (selectedCategoryDetail) {
-      this.categoryName = selectedCategoryDetail.name || '';
-      this.fetchBlogsByCategory(selectedCategoryDetail._id);
-    }
+          const id:string =  this.route.snapshot.paramMap.get('id') || '';
+      this.fetchBlogsByCategory(id);
+
+    // const selectedCategoryDetail: any = this.globalDataService._selectedBlogCategory.getValue();
+    // if (selectedCategoryDetail) {
+    //   this.categoryName = selectedCategoryDetail.name || '';
+    //   this.fetchBlogsByCategory(selectedCategoryDetail._id);
+    // }
   }
 
 
@@ -47,6 +50,7 @@ export class BlogsListPageComponent implements OnInit, OnDestroy {
         this.loading = false;
         if (res && res?.data?.length) {
           this.blogs = res.data;
+          this.categoryName = this.blogs[0]?.moduleDetail?.name || '';
         }
       },
       error: (err: any) => {

@@ -21,24 +21,24 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   providers: [MainRequestServiceService, RequestService]
 })
 export class BlogDetailPageComponent implements OnInit, OnDestroy {
-  blogDetail:any = null;
+  blogDetail: any = null;
   loading: boolean = false;
-  blogName:string = '';
-    sanitizedPdfUrl: SafeResourceUrl | null = null;
+  blogName: string = '';
+  sanitizedPdfUrl: SafeResourceUrl | null = null;
 
 
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService,
     private globalDataService: GlobalDataService, private adminService: AdminService,
-      private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer
 
   ) {
   }
 
   ngOnInit(): void {
-      const id:string =  this.route.snapshot.paramMap.get('id') || '';
-this.getBlogDetail(id);
-    
+    const id: string = this.route.snapshot.paramMap.get('id') || '';
+    this.getBlogDetail(id);
+
   }
 
 
@@ -51,7 +51,17 @@ this.getBlogDetail(id);
         if (res && res?.data) {
           this.blogDetail = res.data;
           if (this.blogDetail?.pdfPath) {
-            this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.blogDetail.pdfPath);
+            const pdfData = this.blogDetail.pdfPath;
+
+            if (pdfData.startsWith('data:application/pdf;base64,')) {
+              const base64 = pdfData.split(',')[1];
+              const byteArray = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+              const blob = new Blob([byteArray], { type: 'application/pdf' });
+              const blobUrl = URL.createObjectURL(blob);
+              this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl);
+            } else {
+              this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdfData);
+            }
           }
         }
       },
@@ -66,13 +76,11 @@ this.getBlogDetail(id);
 
 
   goBack() {
-    this.router.navigate(['/main-page']);
+    this.router.navigate(['/blogs-list', this.blogDetail.moduleDetail.id]);
   }
 
 
-
   ngOnDestroy(): void {
-    this.globalDataService._selectedBlogCategory.next(null);
   }
 
 

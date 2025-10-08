@@ -34,40 +34,61 @@
   </div>
 
   <!-- Blog Detail Section -->
-  <div *ngIf="!loading && blogDetail" class="max-w-4xl mx-auto bg-white shadow rounded-2xl overflow-hidden">
-    
-    <!-- Thumbnail -->
-    <img
-      [src]="blogDetail.thumbnailPath"
-      alt="Blog Thumbnail"
-      class="w-full h-72 object-cover"
-    />
+ <div
+  *ngIf="!loading && blogDetail"
+  class="max-w-5xl mx-auto bg-white shadow-md rounded-2xl overflow-hidden p-4 sm:p-6 md:p-8"
+>
+  <!-- Thumbnail -->
+  <img
+    [src]="blogDetail.thumbnailPath"
+    alt="Blog Thumbnail"
+    class="w-full h-56 sm:h-72 md:h-96 object-cover rounded-xl mb-4 sm:mb-6"
+  />
 
-    <!-- Content -->
-    <div class="p-6">
-      <h2 class="text-2xl font-bold text-gray-800 mb-2">
-        {{ blogDetail.name }}
-      </h2>
+  <!-- Blog Content -->
+  <div class="space-y-4">
+    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
+      {{ blogDetail.name }}
+    </h2>
 
-      <div class="flex items-center text-sm text-gray-500 mb-4">
-        <span class="flex items-center mr-4">
-          <i class="fa-solid fa-user mr-1"></i> {{ blogDetail.author }}
-        </span>
-        <span class="flex items-center">
-          <i class="fa-regular fa-calendar mr-1"></i>
-          {{ blogDetail.createdAt | date: 'fullDate' }}
-        </span>
-      </div>
+    <!-- Author and Date -->
+    <div
+      class="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 gap-3 sm:gap-6"
+    >
+      <span class="flex items-center gap-1">
+        <i class="fa-solid fa-user"></i>
+        <span>{{ blogDetail.author }}</span>
+      </span>
 
-      <p class="text-gray-700 text-sm leading-relaxed mb-6">
-        {{ blogDetail.description }}
-      </p>
+      <span class="flex items-center gap-1">
+        <i class="fa-regular fa-calendar"></i>
+        <span>{{ blogDetail.createdAt | date: 'fullDate' }}</span>
+      </span>
+    </div>
 
-      <!-- PDF Viewer -->
-       <!-- Embedded PDF -->
-  <div *ngIf="sanitizedPdfUrl" class="mt-6 border rounded-xl overflow-hidden shadow-inner">
-    <iframe [src]="sanitizedPdfUrl" width="100%" height="600px"></iframe>
-  </div>
+    <!-- Description -->
+    <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+      {{ blogDetail.description }}
+    </p>
+
+    <!-- PDF Viewer -->
+    <div
+      *ngIf="sanitizedPdfUrl"
+      class="mt-6 border rounded-xl overflow-hidden shadow-inner"
+    >
+      <iframe
+        [src]="sanitizedPdfUrl"
+        class="w-full h-[400px] sm:h-[500px] md:h-[600px]"
+      ></iframe>
+    </div>
+
+    <div
+      *ngIf="!sanitizedPdfUrl"
+      class="text-gray-500 text-sm italic mt-4 text-center"
+    >
+      No PDF available for this blog.
     </div>
   </div>
+</div>
+
 </div>
