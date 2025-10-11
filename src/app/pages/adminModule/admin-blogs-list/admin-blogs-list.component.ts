@@ -18,7 +18,8 @@ export class AdminBlogListComponent implements OnInit {
 blogs:any[] = [];
 categoryTitle:string = 'All Blogs List';
 loading: boolean = false;
-
+showConfirmDialog = false;
+selectedBlogId: string | null = null;
 
   constructor(private fb: FormBuilder,private adminService: AdminService, private router: Router, private route: ActivatedRoute,private toastr: ToastrService, private authService: AuthService) {
   
@@ -48,18 +49,17 @@ loading: boolean = false;
     // this.router.navigate(['/edit-blog', blog._id]);
   }
 
-  deleteBlog(blog: any) {
-    // if (confirm('Are you sure you want to delete this blog?')) {
-    //   this.adminService.deleteBlog(blog._id).subscribe({
-    //     next: () => {
-    //       this.toastr.success('Blog deleted successfully');
-    //       this.loadBlogs();
-    //     },
-    //     error: () => {
-    //       this.toastr.error('Failed to delete blog');
-    //     },
-    //   });
-    // }
+  deleteBlog(blogId: any) {
+      this.adminService.deleteBlog(blogId).subscribe({
+        next: () => {
+          this.toastr.success('Blog deleted successfully');
+          this.loadBlogs();
+        },
+        error: () => {
+          this.toastr.error('Failed to delete blog');
+        },
+      });
+    
   }
 
 openPDF(base64Data: string) {
@@ -86,5 +86,32 @@ openPDF(base64Data: string) {
     alert('Could not open PDF file.');
   }
 }
+
+
+
+// When user clicks the trash icon
+  openConfirmDialog(blogId: string) {
+    this.selectedBlogId = blogId;
+    this.showConfirmDialog = true;
+  }
+
+  // Confirm deletion
+  confirmDelete() {
+    if (this.selectedBlogId) {
+      this.deleteBlog(this.selectedBlogId);
+    }
+    this.closeDialog();
+  }
+
+  // Cancel deletion
+  cancelDelete() {
+    this.closeDialog();
+  }
+
+  // Helper to close modal
+  closeDialog() {
+    this.showConfirmDialog = false;
+    this.selectedBlogId = null;
+  }
 
 }

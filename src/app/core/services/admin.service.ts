@@ -89,5 +89,14 @@ export class AdminService {
     }));
   }
 
+     deleteBlog(id: string): Observable<any[]> {
+    return this.mainRequestService.deleteData(`${this.baseUrl}/blogs/delete/${id}`).pipe(catchError(err => {
+      console.log("error", err)
+      const message = err.error?.message || 'An error has occured.';
+      this.toastr.error(message);
+      return EMPTY;
+    }));
+  }
+
 
 } 
