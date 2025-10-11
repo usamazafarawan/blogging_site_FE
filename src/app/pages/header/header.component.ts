@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input , OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,6 +18,10 @@ import { GlobalDataService } from '../../core/services/data.service';
   providers: [MainRequestServiceService, RequestService]
 })
 export class HeaderComponent implements OnInit  {
+
+@Input() showCompactHeader: boolean = false;
+@Input() title: string = '';
+
 
   isMenuOpen = false;
   openSubmenu: string | null = null;

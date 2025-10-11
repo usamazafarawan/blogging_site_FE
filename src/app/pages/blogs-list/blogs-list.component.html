@@ -1,5 +1,7 @@
-<!-- <app-header></app-header> -->
-
+<app-header
+  [showCompactHeader]="true"
+  [title]="(categoryName | titlecase) + ' Blogs'"
+></app-header>
 <div class="p-6 bg-gray-50 min-h-screen">
 
   <!-- Header Section -->
@@ -12,11 +14,11 @@
       <span>Back</span>
     </button>
 
-    <h1
+    <!-- <h1
       class="font-semibold text-2xl bg-gradient-to-r from-[#0040b0] to-[#1cccb7] bg-clip-text text-transparent"
     >
       {{ categoryName | titlecase }} Blogs
-    </h1>
+    </h1> -->
 
     <div class="w-[80px]"></div>
   </div>
@@ -38,41 +40,48 @@
   <!-- Blog Cards Grid -->
   <div *ngIf="!loading && blogs?.length" class="grid gap-5 sm:grid-cols-4 lg:grid-cols-4">
     <div
-      *ngFor="let blog of blogs"
-      class="bg-white rounded-xl border border-gray-200 hover:shadow-md transition duration-300 overflow-hidden"
+  *ngFor="let blog of blogs"
+  class="flex flex-col bg-white rounded-xl border border-gray-200 hover:shadow-md transition duration-300 overflow-hidden"
+>
+  <!-- Thumbnail -->
+  <img
+    [src]="blog.thumbnailPath"
+    alt="Thumbnail"
+    class="w-full h-40 object-cover rounded-t-xl"
+  />
+
+  <!-- Card Content -->
+  <div class="flex flex-col flex-grow p-4">
+    <h2
+      class="text-base font-semibold text-gray-800 mb-1 line-clamp-1 hover:text-blue-600 transition"
     >
-      <img
-        [src]="blog.thumbnailPath"
-        alt="Thumbnail"
-        class="w-full h-40 object-cover rounded-t-xl"
-      />
+      {{ blog.name }}
+    </h2>
 
-      <div class="p-4">
-        <h2
-          class="text-base font-semibold text-gray-800 mb-1 line-clamp-1 hover:text-blue-600 transition"
-        >
-          {{ blog.name }}
-        </h2>
+    <p class="text-sm text-gray-600 mb-2 line-clamp-2">
+      {{ blog.description }}
+    </p>
 
-        <p class="text-sm text-gray-600 mb-2 line-clamp-2">
-          {{ blog.description }}
-        </p>
-
-        <div
-          class="flex items-center justify-between text-xs text-gray-500 mb-2"
-        >
-          <span><i class="fa-solid fa-user mr-1"></i>{{ blog.author }}</span>
-          <span><i class="fa-regular fa-calendar mr-1"></i>{{ blog.createdAt | date: 'fullDate' }}</span>
-        </div>
-
-        <a
-          [routerLink]="['/blog-details', blog._id]"
-          class="block text-center bg-blue-600 text-white text-xs px-3 py-1.5 rounded-md hover:bg-blue-700 transition"
-        >
-          Read More →
-        </a>
-      </div>
+    <div
+      class="flex items-center justify-between text-xs text-gray-500 mb-3"
+    >
+      <span><i class="fa-solid fa-user mr-1"></i>{{ blog.author }}</span>
+      <span><i class="fa-regular fa-calendar mr-1"></i>{{ blog.createdAt | date: 'fullDate' }}</span>
     </div>
+
+    <!-- Spacer pushes button to bottom -->
+    <div class="flex-grow"></div>
+
+    <!-- Button -->
+    <a
+      [routerLink]="['/blog-details', blog._id]"
+      class="block text-center bg-blue-600 text-white text-xs px-3 py-1.5 rounded-md hover:bg-blue-700 transition mt-auto"
+    >
+      Read More →
+    </a>
+  </div>
+</div>
+
   </div>
 </div>
 

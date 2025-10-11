@@ -1,5 +1,5 @@
 <!-- header.component.html -->
-<header class="sticky top-0 z-50 bg-[#F5F6F7] shadow-sm">
+<header *ngIf="!showCompactHeader" class="sticky top-0 z-50 bg-[#F5F6F7] shadow-sm">
   <div class="w-full">
     <div class="flex justify-around items-center h-20">
       <!-- Logo -->
@@ -170,5 +170,36 @@
 </a>
       </li>
     </ul>
+  </div>
+</header>
+
+
+
+<!-- Compact Header -->
+
+<!-- Compact Header -->
+<header
+  *ngIf="showCompactHeader"
+  class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm"
+>
+  <div
+    class="relative max-w-7xl mx-auto flex items-center justify-center px-4 sm:px-6 py-3"
+  >
+    <!-- Left: Logo -->
+    <a
+      routerLink="/"
+      class="absolute left-4 sm:left-6 flex items-center"
+    >
+      <img
+        src="assets/images/sap_logo.png"
+        alt="Blog Logo"
+        class="h-9 w-auto object-contain"
+      />
+    </a>
+
+    <!-- Center: Title -->
+    <h1 class="font-semibold text-2xl bg-gradient-to-r from-[#0040b0] to-[#1cccb7] bg-clip-text text-transparent">
+      {{title}} 
+    </h1>
   </div>
 </header>

@@ -1,3 +1,4 @@
+<app-header [showCompactHeader]="true"  [title]="'Blog Detail'" ></app-header>
 <div class="p-6 bg-gray-50 min-h-screen">
 
   <!-- Header Section -->
@@ -39,11 +40,11 @@
   class="max-w-5xl mx-auto bg-white shadow-md rounded-2xl overflow-hidden p-4 sm:p-6 md:p-8"
 >
   <!-- Thumbnail -->
-  <img
+  <!-- <img
     [src]="blogDetail.thumbnailPath"
     alt="Blog Thumbnail"
     class="w-full h-56 sm:h-72 md:h-96 object-cover rounded-xl mb-4 sm:mb-6"
-  />
+  /> -->
 
   <!-- Blog Content -->
   <div class="space-y-4">
@@ -78,7 +79,7 @@
     >
       <iframe
         [src]="sanitizedPdfUrl"
-        class="w-full h-[400px] sm:h-[500px] md:h-[600px]"
+        class="w-full h-[800px] sm:h-[600px] md:h-[900px]"
       ></iframe>
     </div>
 
