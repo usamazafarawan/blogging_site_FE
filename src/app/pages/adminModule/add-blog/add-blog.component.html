@@ -1,5 +1,5 @@
 <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-4 sm:p-6 mt-4 sm:mt-8">
-  <h2 class="text-2xl font-semibold mb-6 text-gray-800">Create New Blog</h2>
+  <h2 class="text-2xl font-semibold mb-6 text-gray-800"> {{isEdit? 'Update Blog':'Create New Blog'}} </h2>
 
   <form (ngSubmit)="onSubmit()" [formGroup]="blogForm" class="space-y-5">
 
@@ -133,12 +133,9 @@
 
     <!-- Submit -->
     <div class="pt-4">
-      <button
-        type="submit"
-        [disabled]="blogForm.invalid || !pdfFile || !thumbnailFile"
-        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
-      >
-        <span *ngIf="!loading">Save Blog</span>
+      <button type="submit" [disabled]="blogForm.invalid || (!isEdit && (!pdfFile || !thumbnailFile))"
+        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed">
+        <span *ngIf="!loading"> Save Blog</span>
         <span *ngIf="loading" class="flex items-center justify-center gap-2">
           <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

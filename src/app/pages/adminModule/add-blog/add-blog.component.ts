@@ -17,6 +17,8 @@ import { AdminService } from '../../../core/services/admin.service';
 export class AddBlogComponent implements OnInit {
   blogForm: FormGroup;
   moduleList:any[] = [ ];
+  isEdit: boolean = false;
+  selectedBlogId: string  = '';
 
   pdfFile: File | null = null;
   thumbnailFile: File | null = null;
@@ -24,7 +26,8 @@ export class AddBlogComponent implements OnInit {
   fileError = { pdf: false, thumbnail: false };
   loading = false;
 
-  constructor(private fb: FormBuilder,private adminService: AdminService, private router: Router, private route: ActivatedRoute,private toastr: ToastrService, private authService: AuthService) {
+  constructor(private fb: FormBuilder,private adminService: AdminService, private router: Router, private route: ActivatedRoute,private toastr: ToastrService, private authService: AuthService,
+  ) {
     this.blogForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -36,6 +39,12 @@ export class AddBlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategories();
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.isEdit = true;
+      this.selectedBlogId = id;
+      this.getBlogDetail();
+    }
   }
 
      getAllCategories() {
@@ -57,6 +66,25 @@ export class AddBlogComponent implements OnInit {
       error: (err: any) => {
         this.toastr.success("Error while fetching categories", err);
       },
+    });
+  }
+
+
+  getBlogDetail() {
+    if (!this.selectedBlogId) return;
+    this.adminService.getBlogDetailById(this.selectedBlogId, true).subscribe({
+      next: (res: any) => {
+        if (res && res.data) {
+          const blog = res.data;
+          this.blogForm.patchValue({
+            author: blog.author,
+            name: blog.name,
+            description: blog.description,
+            moduleId: blog.moduleDetail.id,
+            tags: blog.tags.join(', '),
+          });
+        }
+      }
     });
   }
 
@@ -103,98 +131,77 @@ export class AddBlogComponent implements OnInit {
     }
   }
 
-// onSubmit() {
-//   // 🔹 Validate form and files
-//   if (this.blogForm.invalid || !this.pdfFile || !this.thumbnailFile) {
-//     this.blogForm.markAllAsTouched();
-//     this.fileError.pdf = !this.pdfFile;
-//     this.fileError.thumbnail = !this.thumbnailFile;
-//     this.toastr.warning('Please fill all required fields and upload both files.');
-//     return;
-//   }
-
-//   this.loading = true;
-
-//   // 🔹 Prepare form data for upload
-//   const formData = new FormData();
-//   formData.append('name', this.blogForm.value.name);
-//   formData.append('description', this.blogForm.value.description);
-//   formData.append('author', this.blogForm.value.author);
-//   formData.append('moduleId', this.blogForm.value.moduleId);
-//   formData.append('tags', JSON.stringify(this.tagsArray)); // ensure array is sent as string
-//   formData.append('pdfFile', this.pdfFile);
-//   formData.append('thumbnail', this.thumbnailFile);
-
-//   // 🔹 Call the API via service
-//   this.adminService.saveBlog(formData).subscribe({
-//     next: (res) => {
-//       this.router.navigate(['/admin/admin-blogs-list']);
-//       this.blogForm.reset();
-//       this.pdfFile = null;
-//       this.thumbnailFile = null;
-//       this.loading = false;
-//     },
-//     error: (err) => {
-//       console.error('Error saving blog:', err);
-//       const message = err?.error?.message || 'Error saving blog. Please try again.';
-//       this.toastr.error(message);
-//       this.loading = false;
-//     },
-//   });
-// }
-
-
 onSubmit() {
-  if (this.blogForm.invalid || !this.pdfFile || !this.thumbnailFile) {
+  // ✅ If form invalid → block submission
+  if (this.blogForm.invalid) {
     this.blogForm.markAllAsTouched();
+    this.toastr.warning('Please fill all required fields.');
+    return;
+  }
+
+  // ✅ If creating (not editing), require both files
+  if (!this.isEdit && (!this.pdfFile || !this.thumbnailFile)) {
     this.fileError.pdf = !this.pdfFile;
     this.fileError.thumbnail = !this.thumbnailFile;
-    this.toastr.warning('Please fill all required fields and upload both files.');
+    this.toastr.warning('Please upload both PDF and thumbnail files.');
     return;
   }
 
   this.loading = true;
 
-  // Convert both files to Base64 before sending
-  Promise.all([
-    this.convertToBase64(this.pdfFile),
-    this.convertToBase64(this.thumbnailFile)
-  ]).then(([pdfBase64, thumbnailBase64]) => {
-    const payload = {
-      name: this.blogForm.value.name,
-      description: this.blogForm.value.description,
-      author: this.blogForm.value.author,
-      moduleId: this.blogForm.value.moduleId,
-      tags: this.tagsArray,
-      pdfFile: pdfBase64,        // base64 string of PDF
-      thumbnail: thumbnailBase64, // base64 string of thumbnail
-      moduleDetail:{
-        id:this.blogForm.value.moduleId,
-        name:this.moduleList.find(m=>m.id===this.blogForm.value.moduleId)?.name || ''
-      }
-    };
-      console.log('payload: ', payload);
+  // ✅ Create promises for file conversion (only for new/updated files)
+  const pdfPromise = this.pdfFile ? this.convertToBase64(this.pdfFile) : Promise.resolve(null);
+  const thumbnailPromise = this.thumbnailFile ? this.convertToBase64(this.thumbnailFile) : Promise.resolve(null);
 
-    this.adminService.saveBlog(payload).subscribe({
-      next: (res) => {
-        this.router.navigate(['/admin/admin-blogs-list']);
-        this.blogForm.reset();
-        this.pdfFile = null;
-        this.thumbnailFile = null;
-        this.loading = false;
-      },
-      error: (err) => {
-        console.error('Error saving blog:', err);
-        const message = err?.error?.message || 'Error saving blog. Please try again.';
-        this.toastr.error(message);
-        this.loading = false;
-      },
+  Promise.all([pdfPromise, thumbnailPromise])
+    .then(([pdfBase64, thumbnailBase64]) => {
+      // ✅ Build payload
+      const payload: any = {
+        name: this.blogForm.value.name,
+        description: this.blogForm.value.description,
+        author: this.blogForm.value.author,
+        moduleId: this.blogForm.value.moduleId,
+        tags: this.tagsArray,
+        moduleDetail: {
+          id: this.blogForm.value.moduleId,
+          name: this.moduleList.find(m => m.id === this.blogForm.value.moduleId)?.name || ''
+        }
+      };
+
+      // ✅ Include files only if provided
+      if (pdfBase64) payload.pdfFile = pdfBase64;
+      if (thumbnailBase64) payload.thumbnail = thumbnailBase64;
+
+      console.log('payload:', payload);
+
+      // ✅ Choose API based on mode
+      const request$ = this.isEdit
+        ? this.adminService.updateBlog(this.selectedBlogId, payload)
+        : this.adminService.saveBlog(payload);
+
+      // ✅ Handle response
+      request$.subscribe({
+        next: (res:any) => {
+          this.toastr.success(this.isEdit ? 'Blog updated successfully!' : 'Blog created successfully!');
+          this.router.navigate(['/admin/admin-blogs-list']);
+          this.blogForm.reset();
+          this.pdfFile = null;
+          this.thumbnailFile = null;
+          this.loading = false;
+        },
+        error: (err:any) => {
+          console.error('Error saving blog:', err);
+          const message = err?.error?.message || 'Error saving blog. Please try again.';
+          this.toastr.error(message);
+          this.loading = false;
+        },
+      });
+    })
+    .catch((err) => {
+      console.error('Error converting files:', err);
+      this.toastr.error('Error processing files.');
+      this.loading = false;
     });
-  }).catch((err) => {
-    console.error('Error converting files:', err);
-    this.toastr.error('Error processing files.');
-    this.loading = false;
-  });
 }
 
 // 🔹 Helper function to convert a file to Base64

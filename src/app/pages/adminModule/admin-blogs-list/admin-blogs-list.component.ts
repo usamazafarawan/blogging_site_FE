@@ -46,7 +46,7 @@ selectedBlogId: string | null = null;
 
 
   editBlog(blog: any) {
-    // this.router.navigate(['/edit-blog', blog._id]);
+    this.router.navigate(['/admin/edit-blog', blog._id]);
   }
 
   deleteBlog(blogId: any) {

@@ -43,6 +43,7 @@ export const routes: Routes = [
       { path: "dashboard", component: AdminDashboardComponent },
       { path: "add-blog", component: AddBlogComponent },
       { path: "admin-blogs-list", component: AdminBlogListComponent },
+      { path: "edit-blog/:id", component: AddBlogComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" }
     ]
   },

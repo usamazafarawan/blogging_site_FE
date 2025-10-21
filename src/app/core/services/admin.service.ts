@@ -80,8 +80,8 @@ export class AdminService {
     }));
   }
 
-    getBlogDetailById(id: string): Observable<any[]> {
-    return this.mainRequestService.getData(`${this.baseUrl}/blogs/blog/${id}`).pipe(catchError(err => {
+    getBlogDetailById(id: string,isEdit:boolean = false): Observable<any[]> {
+    return this.mainRequestService.getData(`${this.baseUrl}/blogs/blog/${id}?isEdit=${isEdit}`).pipe(catchError(err => {
       console.log("error", err)
       const message = err.error?.message || 'An error has occured.';
       this.toastr.error(message);
@@ -91,6 +91,15 @@ export class AdminService {
 
      deleteBlog(id: string): Observable<any[]> {
     return this.mainRequestService.deleteData(`${this.baseUrl}/blogs/delete/${id}`).pipe(catchError(err => {
+      console.log("error", err)
+      const message = err.error?.message || 'An error has occured.';
+      this.toastr.error(message);
+      return EMPTY;
+    }));
+  }
+
+    updateBlog(id: string,data:any): Observable<any[]> {
+    return this.mainRequestService.updateData(`${this.baseUrl}/blogs/update/${id}`,data).pipe(catchError(err => {
       console.log("error", err)
       const message = err.error?.message || 'An error has occured.';
       this.toastr.error(message);
