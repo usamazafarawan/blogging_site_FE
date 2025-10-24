@@ -34,6 +34,7 @@ selectedBlogId: string | null = null;
     this.adminService.getBlogs().subscribe({
       next: (res:any) => {
         this.blogs = res.data || [];
+        console.log('this.blogs: ', this.blogs);
             this.loading = false;
       },
       error: () => {
@@ -62,30 +63,9 @@ selectedBlogId: string | null = null;
     
   }
 
-openPDF(base64Data: string) {
-  try {
-    // 1️⃣ Remove prefix if present
-    const base64 = base64Data.replace(/^data:application\/pdf;base64,/, '');
-
-    // 2️⃣ Decode Base64 → binary
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-
-    // 3️⃣ Convert binary → Blob
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], { type: 'application/pdf' });
-
-    // 4️⃣ Create temporary blob URL and open it
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
-  } catch (error) {
-    console.error('Error opening PDF:', error);
-    alert('Could not open PDF file.');
+  openPDF(pdfUrl: string) {
+    window.open(pdfUrl, '_blank');
   }
-}
 
 
 

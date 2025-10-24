@@ -38,7 +38,6 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const id: string = this.route.snapshot.paramMap.get('id') || '';
     this.getBlogDetail(id);
-
   }
 
 
@@ -50,28 +49,16 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
         console.log('res: ', res);
         if (res && res?.data) {
           this.blogDetail = res.data;
-          if (this.blogDetail?.pdfPath) {
-            const pdfData = this.blogDetail.pdfPath;
-
-            if (pdfData.startsWith('data:application/pdf;base64,')) {
-              const base64 = pdfData.split(',')[1];
-              const byteArray = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
-              const blob = new Blob([byteArray], { type: 'application/pdf' });
-              const blobUrl = URL.createObjectURL(blob);
-              this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl);
-            } else {
-              this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdfData);
-            }
+          if (this.blogDetail?.pdfUrl) {
+            this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.blogDetail?.pdfUrl);
           }
         }
       },
       error: (err: any) => {
         this.loading = false;
-        this.toastr.success('Error while fetching blogs', err);
+        this.toastr.error('Error while fetching blogs', err);
       }
-    }
-    )
-
+    });
   }
 
 
