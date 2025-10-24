@@ -149,59 +149,47 @@ onSubmit() {
 
   this.loading = true;
 
-  // ✅ Create promises for file conversion (only for new/updated files)
-  const pdfPromise = this.pdfFile ? this.convertToBase64(this.pdfFile) : Promise.resolve(null);
-  const thumbnailPromise = this.thumbnailFile ? this.convertToBase64(this.thumbnailFile) : Promise.resolve(null);
+ 
+  const formData = new FormData();
 
-  Promise.all([pdfPromise, thumbnailPromise])
-    .then(([pdfBase64, thumbnailBase64]) => {
-      // ✅ Build payload
-      const payload: any = {
-        name: this.blogForm.value.name,
-        description: this.blogForm.value.description,
-        author: this.blogForm.value.author,
-        moduleId: this.blogForm.value.moduleId,
-        tags: this.tagsArray,
-        moduleDetail: {
-          id: this.blogForm.value.moduleId,
-          name: this.moduleList.find(m => m.id === this.blogForm.value.moduleId)?.name || ''
-        }
-      };
+formData.append('name', this.blogForm.value.name);
+formData.append('description', this.blogForm.value.description);
+formData.append('author', this.blogForm.value.author);
+formData.append('moduleId', this.blogForm.value.moduleId);
+formData.append('tags', JSON.stringify(this.tagsArray));
 
-      // ✅ Include files only if provided
-      if (pdfBase64) payload.pdfFile = pdfBase64;
-      if (thumbnailBase64) payload.thumbnail = thumbnailBase64;
+formData.append('moduleDetail', JSON.stringify({
+  id: this.blogForm.value.moduleId,
+  name: this.moduleList.find(m => m.id === this.blogForm.value.moduleId)?.name || ''
+}));
 
-      console.log('payload:', payload);
+// ✅ Append files only if selected
+if (this.pdfFile) formData.append('pdfFile', this.pdfFile);
+if (this.thumbnailFile) formData.append('thumbnail', this.thumbnailFile);
 
-      // ✅ Choose API based on mode
-      const request$ = this.isEdit
-        ? this.adminService.updateBlog(this.selectedBlogId, payload)
-        : this.adminService.saveBlog(payload);
 
-      // ✅ Handle response
-      request$.subscribe({
-        next: (res:any) => {
-          this.toastr.success(this.isEdit ? 'Blog updated successfully!' : 'Blog created successfully!');
-          this.router.navigate(['/admin/admin-blogs-list']);
-          this.blogForm.reset();
-          this.pdfFile = null;
-          this.thumbnailFile = null;
-          this.loading = false;
-        },
-        error: (err:any) => {
-          console.error('Error saving blog:', err);
-          const message = err?.error?.message || 'Error saving blog. Please try again.';
-          this.toastr.error(message);
-          this.loading = false;
-        },
-      });
-    })
-    .catch((err) => {
-      console.error('Error converting files:', err);
-      this.toastr.error('Error processing files.');
-      this.loading = false;
-    });
+// ✅ Choose API based on mode
+const request$ = this.isEdit
+  ? this.adminService.updateBlog(this.selectedBlogId, formData)
+  : this.adminService.saveBlog(formData);
+
+// ✅ Handle response
+request$.subscribe({
+  next: (res: any) => {
+    this.toastr.success(this.isEdit ? 'Blog updated successfully!' : 'Blog created successfully!');
+    this.router.navigate(['/admin/admin-blogs-list']);
+    this.blogForm.reset();
+    this.pdfFile = null;
+    this.thumbnailFile = null;
+    this.loading = false;
+  },
+  error: (err: any) => {
+    console.error('Error saving blog:', err);
+    const message = err?.error?.message || 'Error saving blog. Please try again.';
+    this.toastr.error(message);
+    this.loading = false;
+  },
+});
 }
 
 // 🔹 Helper function to convert a file to Base64
