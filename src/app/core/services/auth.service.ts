@@ -11,16 +11,10 @@ export class AuthService {
      baseUrl = environment.apiUrl; 
 
   constructor(private mainRequestService: MainRequestServiceService,
-    private toastr: ToastrService,
   ) { }
 
   authLogin(data:any): Observable<any> {
-    return this.mainRequestService.addData(`${this.baseUrl}/auth/login`, data).pipe(catchError(err => {
-      console.log("error", err)
-      const message = err.error?.message || 'An error has occured.';
-      this.toastr.error(message);
-      return EMPTY;
-    }));
+    return this.mainRequestService.addData(`${this.baseUrl}/auth/login`, data);
   }
 
 
