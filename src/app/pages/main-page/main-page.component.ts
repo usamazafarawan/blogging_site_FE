@@ -1,25 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RequestService } from '../../core/services/request.service';
 import { MainRequestServiceService } from '../../core/services/main-request-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { GlobalDataService } from '../../core/services/data.service';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule ,HeaderComponent,FooterComponent ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule ,HeaderComponent,FooterComponent ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
   providers: [MainRequestServiceService, RequestService]
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnDestroy {
 
-  constructor(){
+  constructor(private router: Router, private globalDataService: GlobalDataService,){
   this.updateItemsPerView();
   }
 
@@ -148,5 +149,17 @@ export class MainPageComponent {
     } else {
       this.currentIndexImage = this.slides_images.length - this.itemsPerView; // loop
     }
+  }
+
+searchByText() {
+  if (this.searchText.trim()) {
+    this.globalDataService._searchQueryText.next(this.searchText);
+    this.router.navigate(['/blogs-list']);
+  }
+}
+
+
+  ngDestroy(): void {
+
   }
 }

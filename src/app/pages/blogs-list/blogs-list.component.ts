@@ -32,14 +32,14 @@ export class BlogsListPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-          const id:string =  this.route.snapshot.paramMap.get('id') || '';
+    const id: string = this.route.snapshot.paramMap.get('id') || ''; // for selected category from route param
+    const SearchQuery: string = this.globalDataService._searchQueryText.getValue();
+    if (id) {
       this.fetchBlogsByCategory(id);
-
-    // const selectedCategoryDetail: any = this.globalDataService._selectedBlogCategory.getValue();
-    // if (selectedCategoryDetail) {
-    //   this.categoryName = selectedCategoryDetail.name || '';
-    //   this.fetchBlogsByCategory(selectedCategoryDetail._id);
-    // }
+    }
+    if (SearchQuery) {
+      this.searchBlogsByQuery(SearchQuery);
+    }
   }
 
 
@@ -67,8 +67,27 @@ export class BlogsListPageComponent implements OnInit, OnDestroy {
 
 
 
+  searchBlogsByQuery(query: string) {
+    this.loading = true;
+    this.adminService.getBlogByQuery(query).subscribe({
+      next: (res: any) => {
+        this.loading = false;
+        if (res && res?.data?.length) {
+          this.blogs = res.data;
+        }
+      },
+      error: (err: any) => {
+        this.loading = false;
+        this.toastr.error('Error while fetching blogs', err);
+      }
+    });
+  }
+
+
+
   ngOnDestroy(): void {
     this.globalDataService._selectedBlogCategory.next(null);
+    this.globalDataService._searchQueryText.next('');  
   }
 
 

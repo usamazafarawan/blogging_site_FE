@@ -5,7 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalDataService {
-  
+    readonly _searchQueryText = new BehaviorSubject<any>('');
+
 
   readonly _selectedBlogCategory = new BehaviorSubject<any>(null);
   selectedBlogCategory$ = this._selectedBlogCategory.asObservable();

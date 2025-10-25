@@ -77,5 +77,9 @@ export class AdminService {
     return this.mainRequestService.updateData(`${this.baseUrl}/blogs/update/${id}`,data);
   }
 
+  getBlogByQuery(query: string): Observable<any[]> {
+    return this.mainRequestService.getData(`${this.baseUrl}/blogs/searchQuery?query=${encodeURIComponent(query)}`);
+  }
+
 
 } 
