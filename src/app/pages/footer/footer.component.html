@@ -19,19 +19,27 @@
         <p class="text-sm text-gray-600 mb-3">
           Subscribe to get the latest posts directly in your inbox.
         </p>
-        <form class="flex items-center">
-          <input 
-            type="email" 
-            placeholder="Your email" 
-            class="w-full px-3 py-2 rounded-l-md border border-gray-300 focus:outline-none focus:border-blue-500 text-sm"
-          />
-          <button 
-            type="submit" 
-            class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-r-md hover:bg-blue-700"
-          >
-            Subscribe
-          </button>
-        </form>
+    <form [formGroup]="newsletterForm" (ngSubmit)="subscribe()" class="flex items-center">
+      <input type="email" formControlName="email" placeholder="Your email"
+        class="w-full px-3 py-2 rounded-l-md border border-gray-300 focus:outline-none focus:border-blue-500 text-sm" />
+    
+      <button type="submit" [disabled]="newsletterForm.invalid || loading"
+        class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-r-md hover:bg-blue-700 disabled:opacity-60 flex items-center gap-2">
+        <ng-container *ngIf="!loading; else spinner">Subscribe</ng-container>
+        <ng-template #spinner>
+          <span class="loader w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+        </ng-template>
+      </button>
+    </form>
+    
+    <!-- Validation Message -->
+    <div *ngIf="newsletterForm.get('email')?.touched && newsletterForm.get('email')?.invalid"
+      class="text-red-500 text-xs mt-1">
+      <span *ngIf="newsletterForm.get('email')?.errors?.['required']">Email is required</span>
+      <span *ngIf="newsletterForm.get('email')?.errors?.['email']">Enter a valid email</span>
+    </div>
+
+
       </div>
     </div>
 

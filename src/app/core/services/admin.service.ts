@@ -81,5 +81,12 @@ export class AdminService {
     return this.mainRequestService.getData(`${this.baseUrl}/blogs/searchQuery?query=${encodeURIComponent(query)}`);
   }
 
+    subscribeEmail(data:any): Observable<any> {
+    return this.mainRequestService.addData(`${this.baseUrl}/subscription/create`, data);   
+  }
+
+  getSubscribeEmails(): Observable<any> {
+    return this.mainRequestService.getData(`${this.baseUrl}/subscription/get`);
+  }
 
 } 

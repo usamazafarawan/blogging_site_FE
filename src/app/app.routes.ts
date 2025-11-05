@@ -9,6 +9,7 @@ import { BlogsListPageComponent } from "./pages/blogs-list/blogs-list.component"
 import { AddBlogComponent } from "./pages/adminModule/add-blog/add-blog.component";
 import { AdminBlogListComponent } from "./pages/adminModule/admin-blogs-list/admin-blogs-list.component";
 import { BlogDetailPageComponent } from "./pages/blog-detail-page/blog-detail-page.component";
+import { EmailSubscriberListComponent } from "./pages/adminModule/email-subscriber-list/email-subscriber-list.component";
 export const routes: Routes = [
 
   {
@@ -47,6 +48,7 @@ export const routes: Routes = [
       { path: "dashboard", component: AdminDashboardComponent },
       { path: "add-blog", component: AddBlogComponent },
       { path: "admin-blogs-list", component: AdminBlogListComponent },
+      { path: "email-subscribers-list", component: EmailSubscriberListComponent },
       { path: "edit-blog/:id", component: AddBlogComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" }
     ]
