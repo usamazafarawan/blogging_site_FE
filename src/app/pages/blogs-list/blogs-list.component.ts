@@ -31,8 +31,8 @@ export class BlogsListPageComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  ngOnInit(): void {
-    const id: string = this.route.snapshot.paramMap.get('id') || ''; // for selected category from route param
+  ngOnInit(): void {   
+    const id: string = this.globalDataService._selectedBlogCategory.getValue()?._id || '';
     const SearchQuery: string = this.globalDataService._searchQueryText.getValue();
     if (id) {
       this.fetchBlogsByCategory(id);
@@ -86,8 +86,8 @@ export class BlogsListPageComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-    this.globalDataService._selectedBlogCategory.next(null);
-    this.globalDataService._searchQueryText.next('');  
+    // this.globalDataService._selectedBlogCategory.next(null);
+    // this.globalDataService._searchQueryText.next('');  
   }
 
 

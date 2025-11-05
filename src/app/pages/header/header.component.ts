@@ -35,7 +35,11 @@ export class HeaderComponent implements OnInit  {
 
 
   ngOnInit(): void {
-    this.getAllCategories();
+    if (!this.showCompactHeader) {
+      this.globalDataService._selectedBlogCategory.next(null);
+      this.globalDataService._searchQueryText.next('');
+       this.getAllCategories();
+    }
 
   }
 
