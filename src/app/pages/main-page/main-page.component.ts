@@ -27,24 +27,24 @@ export class MainPageComponent implements OnDestroy {
 
  slides = [
     {
-      img: 'assets/images/c-2.png',
-      title: 'Innovative Solutions',
-      description: 'We deliver modern web apps with Angular & Tailwind.',
+      img: 'assets/images/b-1.png',
+      title: 'SHARE YOUR EXPERIENCE WITH US',
+      description: 'IF YOU WANT TO SHARE ANY BLOG WITH US WITH YOUR OWN NAME AND IDEA',
     },
     {
-      img: 'assets/images/c-3.png',
-      title: 'Seamless UI',
-      description: 'Beautiful, responsive, and accessible design.',
+      img: 'assets/images/b-2.png',
+      title: 'Dive Into The LEARNING ZONE ',
+      description: 'START YOUR LEARNING TODAY, ANY COURSE JUST ON ONE CLICK',
     },
     {
-      img: 'assets/images/c-4.png',
-      title: 'Scalable Apps',
-      description: 'Our apps grow with your business needs.',
+      img: 'assets/images/b-3.png',
+      title: 'LEAD THE SAP WITH YOUR EXPERTISE ',
+      description: 'SHARE YOUR RSUME AND LET US FIND THE JOB FOR YOU',
     },
       {
-      img: 'assets/images/c-1.jpg',
-      title: 'Scalable Apps',
-      description: 'Our apps grow with your business needs.',
+      img: 'assets/images/b-4.png',
+      title: 'LEARN SAP WITH OUR BEST TUTORS',
+      description: 'IF YOU WANT TO LEARN ANY SAP MODULE WITH OUR ONE TO ONE TUTOR ONLINE',
     },
   ];
 
