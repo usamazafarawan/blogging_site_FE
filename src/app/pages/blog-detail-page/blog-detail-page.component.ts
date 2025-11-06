@@ -11,11 +11,12 @@ import { FooterComponent } from '../footer/footer.component';
 import { GlobalDataService } from '../../core/services/data.service';
 import { AdminService } from '../../core/services/admin.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @Component({
   selector: 'app-blog-detail-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule, HeaderComponent,PdfViewerModule],
   templateUrl: './blog-detail-page.component.html',
   styleUrl: './blog-detail-page.component.scss',
   providers: [MainRequestServiceService, RequestService]
@@ -25,8 +26,9 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   blogName: string = '';
   sanitizedPdfUrl: SafeResourceUrl | null = null;
-
-
+zoom = 1.0;
+page = 1;
+totalPages = 0;
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private toastr: ToastrService, private requestService: RequestService,
     private globalDataService: GlobalDataService, private adminService: AdminService,
@@ -60,6 +62,32 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+
+
+onPdfLoad(pdf: any) {
+  this.totalPages = pdf.numPages;
+}
+
+nextPage() {
+  if (this.page < this.totalPages) this.page++;
+}
+
+prevPage() {
+  if (this.page > 1) this.page--;
+}
+
+
+
+zoomIn() {
+  this.zoom += 0.25;
+}
+
+zoomOut() {
+  if (this.zoom > 0.25) {
+    this.zoom -= 0.25;
+  }
+}
 
 
   goBack() {

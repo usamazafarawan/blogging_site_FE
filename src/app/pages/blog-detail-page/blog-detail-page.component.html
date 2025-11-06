@@ -1,19 +1,14 @@
-<app-header [showCompactHeader]="true"  [title]="'Blog Detail'" ></app-header>
+<app-header [showCompactHeader]="true" [title]="'Blog Detail'"></app-header>
 <div class="p-6 bg-gray-50 min-h-screen">
 
   <!-- Header Section -->
   <div class="flex items-center justify-between mb-8">
-    <button
-      (click)="goBack()"
-      class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition"
-    >
+    <button (click)="goBack()" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition">
       <i class="fa-solid fa-arrow-left"></i>
       <span>Back</span>
     </button>
 
-    <h1
-      class="font-semibold text-2xl bg-gradient-to-r from-[#0040b0] to-[#1cccb7] bg-clip-text text-transparent"
-    >
+    <h1 class="font-semibold text-2xl bg-gradient-to-r from-[#0040b0] to-[#1cccb7] bg-clip-text text-transparent">
       {{ blogName | titlecase }}
     </h1>
 
@@ -26,20 +21,14 @@
   </div>
 
   <!-- No Blog Found -->
-  <div
-    *ngIf="!loading && !blogDetail"
-    class="flex items-center justify-center gap-2 text-gray-500 text-sm mt-10"
-  >
+  <div *ngIf="!loading && !blogDetail" class="flex items-center justify-center gap-2 text-gray-500 text-sm mt-10">
     <i class="fa-regular fa-face-frown text-xl"></i>
     <span>No blog details found.</span>
   </div>
 
   <!-- Blog Detail Section -->
-  <div
-    *ngIf="!loading && blogDetail"
- class="mx-auto bg-white shadow-md rounded-2xl overflow-hidden p-4 sm:p-6 md:p-8 
-         w-full max-w-none"
-  >
+  <div *ngIf="!loading && blogDetail" class="mx-auto bg-white shadow-md rounded-2xl overflow-hidden p-4 sm:p-6 md:p-8 
+         w-full max-w-none">
 
     <!-- Blog Content -->
     <div class="space-y-4">
@@ -48,9 +37,7 @@
       </h2>
 
       <!-- Author and Date -->
-      <div
-        class="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 gap-3 sm:gap-6"
-      >
+      <div class="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 gap-3 sm:gap-6">
         <span class="flex items-center gap-1">
           <i class="fa-solid fa-user"></i>
           <span>{{ blogDetail.author }}</span>
@@ -68,20 +55,23 @@
       </p>
 
       <!-- PDF Viewer -->
-      <div
-        *ngIf="sanitizedPdfUrl"
-        class="mt-6 border rounded-xl overflow-hidden shadow-inner"
-      >
-        <iframe
+      <div *ngIf="sanitizedPdfUrl" class="mt-6 border rounded-xl overflow-hidden shadow-inner">
+        <!-- <iframe
           [src]="sanitizedPdfUrl"
           class="w-full h-[450px] sm:h-[600px] md:h-[850px] lg:h-[1000px] xl:h-[1200px]"
-        ></iframe>
+        ></iframe> -->
+        <div class="flex gap-3 mb-3">
+          <button (click)="zoomIn()" class="px-3 py-1 bg-gray-200 rounded">+</button>
+          <button (click)="zoomOut()" class="px-3 py-1 bg-gray-200 rounded">-</button>
+          <span>Zoom: {{ zoom | number:'1.0-2' }}</span>
+        </div>
+
+        <pdf-viewer [src]="blogDetail.pdfUrl" [render-text]="true" [original-size]="true" [show-all]="true"
+          [autoresize]="true" [stick-to-page]="true" [show-borders]="true" [original-size]="false" [zoom]="zoom"
+          class="w-full h-[450px] sm:h-[600px] md:h-[850px] lg:h-[1000px] xl:h-[1200px]"></pdf-viewer>
       </div>
 
-      <div
-        *ngIf="!sanitizedPdfUrl"
-        class="text-gray-500 text-sm italic mt-4 text-center"
-      >
+      <div *ngIf="!sanitizedPdfUrl" class="text-gray-500 text-sm italic mt-4 text-center">
         No PDF available for this blog.
       </div>
     </div>
